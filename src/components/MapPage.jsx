@@ -2,10 +2,10 @@ import { useMemo, useState } from 'react';
 import FarmMap from './FarmMap';
 import Icon from './Icons';
 import LocateButton from './LocateButton';
-import { LAYERS, layerCells, legendBands, valueForLayer } from '../lib/layers';
+import { LAYERS, layerCells, legendBands } from '../lib/layers';
 import { PLACES, placeName, placeRegion, typeLabelKey } from '../lib/places';
 import { sortByDistance, km } from '../lib/geo';
-import { cropInfo } from '../lib/api';
+import { cropInfo, layerValuesByRegion } from '../lib/api';
 import { useLang } from '../i18n';
 
 export default function MapPage({
@@ -13,7 +13,7 @@ export default function MapPage({
   refPoint,
   refIsManual,
   suppliers,
-  metrics,
+  _metrics,
   onRefChange,
   onSelectPlace,
   onLocated,
@@ -25,7 +25,12 @@ export default function MapPage({
   const [suppliersOn, setSuppliersOn] = useState(initialSuppliersOpen);
 
   const layer = LAYERS.find((l) => l.id === layerId) ?? LAYERS[0];
-  const cells = useMemo(() => layerCells(layer, place, metrics), [layer, place, metrics]);
+  const regionValues = useMemo(() => layerValuesByRegion(), []);
+  const cells = useMemo(
+    () => layerCells(layer, PLACES, regionValues, place.id),
+    [layer, regionValues, place.id],
+  );
+  const selectedCell = cells.find((cell) => cell.selected) ?? cells[0];
   const bands = legendBands(layer, t[layer.unit]);
 
   const nearby = useMemo(
@@ -125,7 +130,7 @@ export default function MapPage({
               <span className="sim-tag">{t.simulated}</span>
             </div>
             <div className="map-scale-note">
-              {valueForLayer(layer, metrics).toFixed(layer.decimals)} {t[layer.unit]}
+              {selectedCell ? `${selectedCell.value.toFixed(layer.decimals)} ${t[layer.unit]}` : ''}
             </div>
           </div>
 

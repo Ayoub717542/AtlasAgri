@@ -270,6 +270,7 @@ html[lang='ar'] .nav-group-label { letter-spacing: 0; }
 .header-lang { display: none; }
 .mobile-brand { display: none; }
 
+.mobile-place { display: none; }
 .mobile-nav { display: none; }
 
 .page-main {
@@ -1555,6 +1556,51 @@ html[lang='ar'] .hero-kicker { letter-spacing: 0; }
   .header-text .page-sub { font-size: .72rem; }
   .header-actions { gap: .45rem; }
   .header-lang { display: inline-flex; }
+  .mobile-place {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    grid-template-areas:
+      "label select"
+      ". meta";
+    align-items: center;
+    gap: .25rem .75rem;
+    padding: .65rem clamp(.8rem, 3vw, 1.25rem);
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .mobile-place > label {
+    grid-area: label;
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    color: var(--muted);
+    font-size: .68rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .mobile-place .select-wrap {
+    grid-area: select;
+    min-width: 0;
+    color: var(--ink);
+    background: var(--paper);
+    border-color: var(--line);
+    border-radius: var(--radius-sm);
+  }
+  .mobile-place .select-wrap select {
+    min-width: 0;
+    color: var(--ink);
+    font-size: .85rem;
+    padding: .45rem 1.9rem .45rem .75rem;
+  }
+  .mobile-place .select-chevron { color: var(--muted); }
+  .mobile-place-meta {
+    grid-area: meta;
+    min-width: 0;
+    color: var(--muted);
+    font-size: .7rem;
+    line-height: 1.35;
+  }
+  html[lang='ar'] .mobile-place > label { letter-spacing: 0; }
   .mobile-nav {
     position: sticky; top: 0; z-index: 60;
     display: flex; gap: .25rem; overflow-x: auto;
@@ -1619,6 +1665,9 @@ html[lang='ar'] .hero-kicker { letter-spacing: 0; }
   .header-text .page-sub { display: none; }
   .header-actions { margin-inline-start: auto; }
   .header-lang .lang-option { padding: .26rem .38rem; }
+  .mobile-place { gap: .25rem .55rem; padding-block: .55rem; }
+  .mobile-place > label { font-size: .62rem; }
+  .mobile-place .select-wrap select { font-size: .8rem; }
 
   .page-main { padding-inline: .8rem; padding-bottom: 5.5rem; }
   .app-foot { padding-inline: .8rem; font-size: .66rem; }
