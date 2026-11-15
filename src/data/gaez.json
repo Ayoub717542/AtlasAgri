@@ -1,0 +1,696 @@
+{
+  "dataset": "FAO GAEZ v5 crop suitability index (baseline 1991–2020)",
+  "source": "FAO / IIASA Global Agro-Ecological Zones v5",
+  "resolution": "30 arc-seconds (about 1 km)",
+  "resolutionKm": 1,
+  "units": {
+    "index": "suitability index 0–100"
+  },
+  "inputLevel": "Intermediate inputs",
+  "simulated": true,
+  "note": "Simulated for demonstration. Not a real NASA or FAO measurement.",
+  "crops": [
+    {
+      "id": "durum-wheat",
+      "name": "Durum wheat",
+      "nameAr": "القمح الصلب",
+      "family": "cereal",
+      "waterMm": 450,
+      "seasonMonths": [11, 6],
+      "season": "Nov – Jun",
+      "seasonAr": "نونبر – يونيو",
+      "nameFr": "Blé dur",
+      "seasonFr": "nov. – juin"
+    },
+    {
+      "id": "barley",
+      "name": "Barley",
+      "nameAr": "الشعير",
+      "family": "cereal",
+      "waterMm": 350,
+      "seasonMonths": [11, 5],
+      "season": "Nov – May",
+      "seasonAr": "نونبر – ماي",
+      "nameFr": "Orge",
+      "seasonFr": "nov. – mai"
+    },
+    {
+      "id": "chickpea",
+      "name": "Chickpea",
+      "nameAr": "الحمص",
+      "family": "legume",
+      "waterMm": 300,
+      "seasonMonths": [2, 6],
+      "season": "Feb – Jun",
+      "seasonAr": "فبراير – يونيو",
+      "nameFr": "Pois chiche",
+      "seasonFr": "févr. – juin"
+    },
+    {
+      "id": "faba-bean",
+      "name": "Faba bean",
+      "nameAr": "الفول",
+      "family": "legume",
+      "waterMm": 380,
+      "seasonMonths": [11, 5],
+      "season": "Nov – May",
+      "seasonAr": "نونبر – ماي",
+      "nameFr": "Féverole",
+      "seasonFr": "nov. – mai"
+    },
+    {
+      "id": "lentil",
+      "name": "Lentil",
+      "nameAr": "العدس",
+      "family": "legume",
+      "waterMm": 300,
+      "seasonMonths": [12, 5],
+      "season": "Dec – May",
+      "seasonAr": "دجنبر – ماي",
+      "nameFr": "Lentille",
+      "seasonFr": "déc. – mai"
+    },
+    {
+      "id": "sugar-beet",
+      "name": "Sugar beet",
+      "nameAr": "الشمندر السكري",
+      "family": "root",
+      "waterMm": 750,
+      "seasonMonths": [10, 6],
+      "season": "Oct – Jun",
+      "seasonAr": "أكتوبر – يونيو",
+      "nameFr": "Betterave sucrière",
+      "seasonFr": "oct. – juin"
+    },
+    {
+      "id": "alfalfa",
+      "name": "Alfalfa",
+      "nameAr": "الفصة",
+      "family": "legume",
+      "waterMm": 1200,
+      "seasonMonths": [1, 12],
+      "season": "All year",
+      "seasonAr": "طوال السنة",
+      "nameFr": "Luzerne",
+      "seasonFr": "toute l’année"
+    },
+    {
+      "id": "olive",
+      "name": "Olive",
+      "nameAr": "الزيتون",
+      "family": "tree",
+      "waterMm": 550,
+      "seasonMonths": [1, 12],
+      "season": "Perennial",
+      "seasonAr": "شجرة دائمة",
+      "nameFr": "Olivier",
+      "seasonFr": "vivace"
+    },
+    {
+      "id": "maize",
+      "name": "Maize",
+      "nameAr": "الذرة",
+      "family": "cereal",
+      "waterMm": 650,
+      "seasonMonths": [4, 9],
+      "season": "Apr – Sep",
+      "seasonAr": "أبريل – شتنبر",
+      "nameFr": "Maïs",
+      "seasonFr": "avr. – sept."
+    },
+    {
+      "id": "date-palm",
+      "name": "Date palm",
+      "nameAr": "النخيل",
+      "family": "tree",
+      "waterMm": 1500,
+      "seasonMonths": [1, 12],
+      "season": "Perennial",
+      "seasonAr": "شجرة دائمة",
+      "nameFr": "Palmier dattier",
+      "seasonFr": "vivace"
+    }
+  ],
+  "locations": {
+    "beni-mellal": [
+      {
+        "crop": "durum-wheat",
+        "rainfed": {
+          "index": 58,
+          "class": "Good"
+        },
+        "irrigated": {
+          "index": 88,
+          "class": "Very high"
+        }
+      },
+      {
+        "crop": "barley",
+        "rainfed": {
+          "index": 62,
+          "class": "Good"
+        },
+        "irrigated": {
+          "index": 80,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "chickpea",
+        "rainfed": {
+          "index": 55,
+          "class": "Good"
+        },
+        "irrigated": {
+          "index": 72,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "faba-bean",
+        "rainfed": {
+          "index": 47,
+          "class": "Medium"
+        },
+        "irrigated": {
+          "index": 78,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "lentil",
+        "rainfed": {
+          "index": 50,
+          "class": "Medium"
+        },
+        "irrigated": {
+          "index": 66,
+          "class": "Good"
+        }
+      },
+      {
+        "crop": "sugar-beet",
+        "rainfed": {
+          "index": 8,
+          "class": "Very marginal"
+        },
+        "irrigated": {
+          "index": 84,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "alfalfa",
+        "rainfed": {
+          "index": 5,
+          "class": "Very marginal"
+        },
+        "irrigated": {
+          "index": 82,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "olive",
+        "rainfed": {
+          "index": 66,
+          "class": "Good"
+        },
+        "irrigated": {
+          "index": 90,
+          "class": "Very high"
+        }
+      },
+      {
+        "crop": "maize",
+        "rainfed": {
+          "index": 3,
+          "class": "Very marginal"
+        },
+        "irrigated": {
+          "index": 71,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "date-palm",
+        "rainfed": {
+          "index": 0,
+          "class": "Not suitable"
+        },
+        "irrigated": {
+          "index": 12,
+          "class": "Marginal"
+        }
+      }
+    ],
+    "meknes": [
+      {
+        "crop": "durum-wheat",
+        "rainfed": {
+          "index": 76,
+          "class": "High"
+        },
+        "irrigated": {
+          "index": 89,
+          "class": "Very high"
+        }
+      },
+      {
+        "crop": "barley",
+        "rainfed": {
+          "index": 74,
+          "class": "High"
+        },
+        "irrigated": {
+          "index": 82,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "chickpea",
+        "rainfed": {
+          "index": 70,
+          "class": "High"
+        },
+        "irrigated": {
+          "index": 78,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "faba-bean",
+        "rainfed": {
+          "index": 68,
+          "class": "Good"
+        },
+        "irrigated": {
+          "index": 80,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "lentil",
+        "rainfed": {
+          "index": 72,
+          "class": "High"
+        },
+        "irrigated": {
+          "index": 76,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "sugar-beet",
+        "rainfed": {
+          "index": 14,
+          "class": "Marginal"
+        },
+        "irrigated": {
+          "index": 70,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "alfalfa",
+        "rainfed": {
+          "index": 10,
+          "class": "Marginal"
+        },
+        "irrigated": {
+          "index": 72,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "olive",
+        "rainfed": {
+          "index": 80,
+          "class": "High"
+        },
+        "irrigated": {
+          "index": 91,
+          "class": "Very high"
+        }
+      },
+      {
+        "crop": "maize",
+        "rainfed": {
+          "index": 6,
+          "class": "Very marginal"
+        },
+        "irrigated": {
+          "index": 66,
+          "class": "Good"
+        }
+      },
+      {
+        "crop": "date-palm",
+        "rainfed": {
+          "index": 0,
+          "class": "Not suitable"
+        },
+        "irrigated": {
+          "index": 0,
+          "class": "Not suitable"
+        }
+      }
+    ],
+    "settat": [
+      {
+        "crop": "durum-wheat",
+        "rainfed": {
+          "index": 61,
+          "class": "Good"
+        },
+        "irrigated": {
+          "index": 82,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "barley",
+        "rainfed": {
+          "index": 70,
+          "class": "High"
+        },
+        "irrigated": {
+          "index": 78,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "chickpea",
+        "rainfed": {
+          "index": 58,
+          "class": "Good"
+        },
+        "irrigated": {
+          "index": 70,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "faba-bean",
+        "rainfed": {
+          "index": 44,
+          "class": "Medium"
+        },
+        "irrigated": {
+          "index": 69,
+          "class": "Good"
+        }
+      },
+      {
+        "crop": "lentil",
+        "rainfed": {
+          "index": 62,
+          "class": "Good"
+        },
+        "irrigated": {
+          "index": 68,
+          "class": "Good"
+        }
+      },
+      {
+        "crop": "sugar-beet",
+        "rainfed": {
+          "index": 4,
+          "class": "Very marginal"
+        },
+        "irrigated": {
+          "index": 58,
+          "class": "Good"
+        }
+      },
+      {
+        "crop": "alfalfa",
+        "rainfed": {
+          "index": 3,
+          "class": "Very marginal"
+        },
+        "irrigated": {
+          "index": 63,
+          "class": "Good"
+        }
+      },
+      {
+        "crop": "olive",
+        "rainfed": {
+          "index": 57,
+          "class": "Good"
+        },
+        "irrigated": {
+          "index": 80,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "maize",
+        "rainfed": {
+          "index": 2,
+          "class": "Very marginal"
+        },
+        "irrigated": {
+          "index": 55,
+          "class": "Good"
+        }
+      },
+      {
+        "crop": "date-palm",
+        "rainfed": {
+          "index": 0,
+          "class": "Not suitable"
+        },
+        "irrigated": {
+          "index": 0,
+          "class": "Not suitable"
+        }
+      }
+    ],
+    "marrakech": [
+      {
+        "crop": "durum-wheat",
+        "rainfed": {
+          "index": 32,
+          "class": "Moderate"
+        },
+        "irrigated": {
+          "index": 80,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "barley",
+        "rainfed": {
+          "index": 45,
+          "class": "Medium"
+        },
+        "irrigated": {
+          "index": 74,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "chickpea",
+        "rainfed": {
+          "index": 30,
+          "class": "Moderate"
+        },
+        "irrigated": {
+          "index": 62,
+          "class": "Good"
+        }
+      },
+      {
+        "crop": "faba-bean",
+        "rainfed": {
+          "index": 24,
+          "class": "Marginal"
+        },
+        "irrigated": {
+          "index": 66,
+          "class": "Good"
+        }
+      },
+      {
+        "crop": "lentil",
+        "rainfed": {
+          "index": 28,
+          "class": "Moderate"
+        },
+        "irrigated": {
+          "index": 58,
+          "class": "Good"
+        }
+      },
+      {
+        "crop": "sugar-beet",
+        "rainfed": {
+          "index": 0,
+          "class": "Not suitable"
+        },
+        "irrigated": {
+          "index": 68,
+          "class": "Good"
+        }
+      },
+      {
+        "crop": "alfalfa",
+        "rainfed": {
+          "index": 0,
+          "class": "Not suitable"
+        },
+        "irrigated": {
+          "index": 79,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "olive",
+        "rainfed": {
+          "index": 38,
+          "class": "Moderate"
+        },
+        "irrigated": {
+          "index": 92,
+          "class": "Very high"
+        }
+      },
+      {
+        "crop": "maize",
+        "rainfed": {
+          "index": 0,
+          "class": "Not suitable"
+        },
+        "irrigated": {
+          "index": 68,
+          "class": "Good"
+        }
+      },
+      {
+        "crop": "date-palm",
+        "rainfed": {
+          "index": 0,
+          "class": "Not suitable"
+        },
+        "irrigated": {
+          "index": 46,
+          "class": "Medium"
+        }
+      }
+    ],
+    "errachidia": [
+      {
+        "crop": "durum-wheat",
+        "rainfed": {
+          "index": 0,
+          "class": "Not suitable"
+        },
+        "irrigated": {
+          "index": 54,
+          "class": "Medium"
+        }
+      },
+      {
+        "crop": "barley",
+        "rainfed": {
+          "index": 4,
+          "class": "Very marginal"
+        },
+        "irrigated": {
+          "index": 62,
+          "class": "Good"
+        }
+      },
+      {
+        "crop": "chickpea",
+        "rainfed": {
+          "index": 0,
+          "class": "Not suitable"
+        },
+        "irrigated": {
+          "index": 31,
+          "class": "Moderate"
+        }
+      },
+      {
+        "crop": "faba-bean",
+        "rainfed": {
+          "index": 0,
+          "class": "Not suitable"
+        },
+        "irrigated": {
+          "index": 48,
+          "class": "Medium"
+        }
+      },
+      {
+        "crop": "lentil",
+        "rainfed": {
+          "index": 0,
+          "class": "Not suitable"
+        },
+        "irrigated": {
+          "index": 29,
+          "class": "Moderate"
+        }
+      },
+      {
+        "crop": "sugar-beet",
+        "rainfed": {
+          "index": 0,
+          "class": "Not suitable"
+        },
+        "irrigated": {
+          "index": 20,
+          "class": "Marginal"
+        }
+      },
+      {
+        "crop": "alfalfa",
+        "rainfed": {
+          "index": 0,
+          "class": "Not suitable"
+        },
+        "irrigated": {
+          "index": 71,
+          "class": "High"
+        }
+      },
+      {
+        "crop": "olive",
+        "rainfed": {
+          "index": 0,
+          "class": "Not suitable"
+        },
+        "irrigated": {
+          "index": 58,
+          "class": "Good"
+        }
+      },
+      {
+        "crop": "maize",
+        "rainfed": {
+          "index": 0,
+          "class": "Not suitable"
+        },
+        "irrigated": {
+          "index": 40,
+          "class": "Medium"
+        }
+      },
+      {
+        "crop": "date-palm",
+        "rainfed": {
+          "index": 0,
+          "class": "Not suitable"
+        },
+        "irrigated": {
+          "index": 88,
+          "class": "Very high"
+        }
+      }
+    ]
+  }
+}

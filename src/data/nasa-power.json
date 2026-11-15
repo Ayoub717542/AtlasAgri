@@ -1,0 +1,444 @@
+{
+  "dataset": "NASA POWER Daily (simulated monthly aggregation)",
+  "source": "NASA Langley Research Center, POWER Project",
+  "resolution": "0.5° × 0.625° (about 50 km)",
+  "resolutionKm": 50,
+  "units": {
+    "t2m": "°C",
+    "precip": "mm/month"
+  },
+  "simulated": true,
+  "note": "Simulated for demonstration. Not a real NASA or FAO measurement.",
+  "locations": {
+    "beni-mellal": [
+      {
+        "month": "2024-01",
+        "t2m": 9.6,
+        "t2mMax": 16.6,
+        "t2mMin": 4.8,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-02",
+        "t2m": 11.6,
+        "t2mMax": 18.5,
+        "t2mMin": 6.3,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-03",
+        "t2m": 15.4,
+        "t2mMax": 22.4,
+        "t2mMin": 10.4,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-04",
+        "t2m": 16.1,
+        "t2mMax": 22.7,
+        "t2mMin": 11.4,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-05",
+        "t2m": 21.2,
+        "t2mMax": 28.2,
+        "t2mMin": 16,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-06",
+        "t2m": 24.5,
+        "t2mMax": 33.7,
+        "t2mMin": 16.9,
+        "hotDays": 5
+      },
+      {
+        "month": "2024-07",
+        "t2m": 30.1,
+        "t2mMax": 39.6,
+        "t2mMin": 22.9,
+        "hotDays": 22
+      },
+      {
+        "month": "2024-08",
+        "t2m": 28.2,
+        "t2mMax": 37.8,
+        "t2mMin": 20.4,
+        "hotDays": 21
+      },
+      {
+        "month": "2024-09",
+        "t2m": 24.9,
+        "t2mMax": 34.4,
+        "t2mMin": 17.4,
+        "hotDays": 5
+      },
+      {
+        "month": "2024-10",
+        "t2m": 19.6,
+        "t2mMax": 26.1,
+        "t2mMin": 15.1,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-11",
+        "t2m": 15.7,
+        "t2mMax": 23,
+        "t2mMin": 10.8,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-12",
+        "t2m": 12,
+        "t2mMax": 19.1,
+        "t2mMin": 6.8,
+        "hotDays": 0
+      }
+    ],
+    "meknes": [
+      {
+        "month": "2024-01",
+        "t2m": 10,
+        "t2mMax": 16.6,
+        "t2mMin": 5.5,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-02",
+        "t2m": 10.7,
+        "t2mMax": 18,
+        "t2mMin": 5.5,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-03",
+        "t2m": 13.3,
+        "t2mMax": 20.7,
+        "t2mMin": 8.3,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-04",
+        "t2m": 14.9,
+        "t2mMax": 22.3,
+        "t2mMin": 9.9,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-05",
+        "t2m": 19.4,
+        "t2mMax": 26.2,
+        "t2mMin": 14.7,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-06",
+        "t2m": 23.2,
+        "t2mMax": 32.9,
+        "t2mMin": 15.7,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-07",
+        "t2m": 26.6,
+        "t2mMax": 36.1,
+        "t2mMin": 18.9,
+        "hotDays": 9
+      },
+      {
+        "month": "2024-08",
+        "t2m": 25.7,
+        "t2mMax": 35.1,
+        "t2mMin": 18.2,
+        "hotDays": 10
+      },
+      {
+        "month": "2024-09",
+        "t2m": 22.2,
+        "t2mMax": 31.7,
+        "t2mMin": 14.7,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-10",
+        "t2m": 18.1,
+        "t2mMax": 25.3,
+        "t2mMin": 13,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-11",
+        "t2m": 13.9,
+        "t2mMax": 21.3,
+        "t2mMin": 8.5,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-12",
+        "t2m": 10.9,
+        "t2mMax": 17.7,
+        "t2mMin": 5.8,
+        "hotDays": 0
+      }
+    ],
+    "settat": [
+      {
+        "month": "2024-01",
+        "t2m": 12,
+        "t2mMax": 18.8,
+        "t2mMin": 6.8,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-02",
+        "t2m": 12.8,
+        "t2mMax": 19.7,
+        "t2mMin": 7.7,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-03",
+        "t2m": 14.2,
+        "t2mMax": 21,
+        "t2mMin": 8.8,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-04",
+        "t2m": 16.4,
+        "t2mMax": 23.3,
+        "t2mMin": 10.9,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-05",
+        "t2m": 18.2,
+        "t2mMax": 25.3,
+        "t2mMin": 12.9,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-06",
+        "t2m": 22.2,
+        "t2mMax": 29.6,
+        "t2mMin": 17.6,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-07",
+        "t2m": 25,
+        "t2mMax": 34.3,
+        "t2mMin": 17.5,
+        "hotDays": 4
+      },
+      {
+        "month": "2024-08",
+        "t2m": 25.7,
+        "t2mMax": 35.5,
+        "t2mMin": 18.7,
+        "hotDays": 6
+      },
+      {
+        "month": "2024-09",
+        "t2m": 23.2,
+        "t2mMax": 32.9,
+        "t2mMin": 16.1,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-10",
+        "t2m": 19.3,
+        "t2mMax": 26.5,
+        "t2mMin": 14.8,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-11",
+        "t2m": 16.9,
+        "t2mMax": 23.5,
+        "t2mMin": 11.7,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-12",
+        "t2m": 12.2,
+        "t2mMax": 19.2,
+        "t2mMin": 6.8,
+        "hotDays": 0
+      }
+    ],
+    "marrakech": [
+      {
+        "month": "2024-01",
+        "t2m": 12.8,
+        "t2mMax": 19.9,
+        "t2mMin": 7.4,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-02",
+        "t2m": 14.3,
+        "t2mMax": 21.1,
+        "t2mMin": 9.3,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-03",
+        "t2m": 16.3,
+        "t2mMax": 23.1,
+        "t2mMin": 11.6,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-04",
+        "t2m": 18.6,
+        "t2mMax": 26,
+        "t2mMin": 13.7,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-05",
+        "t2m": 20.7,
+        "t2mMax": 27.9,
+        "t2mMin": 15.5,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-06",
+        "t2m": 25.2,
+        "t2mMax": 34.2,
+        "t2mMin": 17.7,
+        "hotDays": 7
+      },
+      {
+        "month": "2024-07",
+        "t2m": 29.7,
+        "t2mMax": 39,
+        "t2mMin": 22.6,
+        "hotDays": 21
+      },
+      {
+        "month": "2024-08",
+        "t2m": 28.9,
+        "t2mMax": 38.4,
+        "t2mMin": 21.8,
+        "hotDays": 17
+      },
+      {
+        "month": "2024-09",
+        "t2m": 24.7,
+        "t2mMax": 34.1,
+        "t2mMin": 17.2,
+        "hotDays": 8
+      },
+      {
+        "month": "2024-10",
+        "t2m": 21.6,
+        "t2mMax": 28.7,
+        "t2mMin": 16.7,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-11",
+        "t2m": 16.7,
+        "t2mMax": 23.3,
+        "t2mMin": 12,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-12",
+        "t2m": 13.6,
+        "t2mMax": 21,
+        "t2mMin": 8.5,
+        "hotDays": 0
+      }
+    ],
+    "errachidia": [
+      {
+        "month": "2024-01",
+        "t2m": 7.5,
+        "t2mMax": 16.7,
+        "t2mMin": 0.2,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-02",
+        "t2m": 10.7,
+        "t2mMax": 19.6,
+        "t2mMin": 3.3,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-03",
+        "t2m": 14.1,
+        "t2mMax": 23,
+        "t2mMin": 7,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-04",
+        "t2m": 18.8,
+        "t2mMax": 27.3,
+        "t2mMin": 11.4,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-05",
+        "t2m": 21.6,
+        "t2mMax": 30.8,
+        "t2mMin": 14.9,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-06",
+        "t2m": 27.5,
+        "t2mMax": 38.6,
+        "t2mMin": 18.3,
+        "hotDays": 14
+      },
+      {
+        "month": "2024-07",
+        "t2m": 30.8,
+        "t2mMax": 42,
+        "t2mMin": 21.2,
+        "hotDays": 25
+      },
+      {
+        "month": "2024-08",
+        "t2m": 30.1,
+        "t2mMax": 41.8,
+        "t2mMin": 20.3,
+        "hotDays": 22
+      },
+      {
+        "month": "2024-09",
+        "t2m": 26.4,
+        "t2mMax": 38.1,
+        "t2mMin": 16.5,
+        "hotDays": 11
+      },
+      {
+        "month": "2024-10",
+        "t2m": 20.1,
+        "t2mMax": 29.1,
+        "t2mMin": 13.4,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-11",
+        "t2m": 14.4,
+        "t2mMax": 23.2,
+        "t2mMin": 7.6,
+        "hotDays": 0
+      },
+      {
+        "month": "2024-12",
+        "t2m": 8.6,
+        "t2mMax": 17.6,
+        "t2mMin": 1.8,
+        "hotDays": 0
+      }
+    ]
+  }
+}

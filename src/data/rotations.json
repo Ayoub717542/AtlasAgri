@@ -1,0 +1,599 @@
+{
+  "note": "Simulated agronomic estimates for demonstration. Water needs are typical crop water requirements for Moroccan conditions, not field measurements. Nitrogen is average annual legume fixation, not a fertilizer-equivalent saving.",
+  "units": {
+    "water": "mm per year (average over the rotation cycle)",
+    "nitrogen": "kg N per hectare per year fixed by legumes (average over the cycle)"
+  },
+  "profiles": {
+    "irrigated-plain": {
+      "label": "Irrigated plain",
+      "scenarios": [
+        {
+          "id": "current",
+          "name": "Your current rotation",
+          "years": [
+            [
+              {
+                "crop": "durum-wheat",
+                "start": 11,
+                "end": 6
+              }
+            ],
+            [
+              {
+                "crop": "durum-wheat",
+                "start": 11,
+                "end": 6
+              }
+            ],
+            [
+              {
+                "crop": "sugar-beet",
+                "start": 10,
+                "end": 6
+              }
+            ]
+          ],
+          "waterMm": 550,
+          "nitrogenKgHa": 0,
+          "soilScore": 2,
+          "erosionRisk": "Medium",
+          "benefits": [
+            "Familiar crops with a secure buyer for sugar beet",
+            "Simple to manage with your current equipment"
+          ],
+          "risks": [
+            "Wheat after wheat builds up root diseases and weeds",
+            "Needs the most nitrogen fertilizer of the three options",
+            "Bare soil in summer can wash away in autumn storms"
+          ],
+          "summary": "This rotation works, but growing wheat two years in a row tires the soil. You buy more fertilizer every year to keep yields up.",
+          "name_ar": "دورتك الحالية",
+          "benefits_ar": [
+            "محاصيل مألوفة ومشترٍ مضمون للشمندر السكري",
+            "سهلة التسيير بمعداتك الحالية"
+          ],
+          "risks_ar": [
+            "القمح بعد القمح يزيد أمراض الجذور والأعشاب الضارة",
+            "تحتاج أكبر كمية من السماد الآزوتي بين الخيارات الثلاثة",
+            "التربة العارية في الصيف قد تجرفها أمطار الخريف"
+          ],
+          "summary_ar": "هذه الدورة تنجح، لكن زراعة القمح سنتين متتاليتين تُتعب التربة. تشتري سماداً أكثر كل سنة للحفاظ على المردود.",
+          "name_fr": "Votre rotation actuelle",
+          "benefits_fr": [
+            "Cultures familières et acheteur assuré pour la betterave sucrière",
+            "Simple à gérer avec votre matériel actuel"
+          ],
+          "risks_fr": [
+            "Blé après blé : maladies des racines et adventices s’accumulent",
+            "Demande le plus d’azote des trois options",
+            "Le sol nu en été peut être emporté par les orages d’automne"
+          ],
+          "summary_fr": "Cette rotation fonctionne, mais deux années de blé de suite fatiguent le sol. Vous achetez plus d’engrais chaque année pour maintenir les rendements."
+        },
+        {
+          "id": "a",
+          "name": "Option A: add faba beans",
+          "years": [
+            [
+              {
+                "crop": "durum-wheat",
+                "start": 11,
+                "end": 6
+              }
+            ],
+            [
+              {
+                "crop": "faba-bean",
+                "start": 11,
+                "end": 5
+              }
+            ],
+            [
+              {
+                "crop": "sugar-beet",
+                "start": 10,
+                "end": 6
+              }
+            ]
+          ],
+          "waterMm": 527,
+          "nitrogenKgHa": 40,
+          "soilScore": 4,
+          "erosionRisk": "Medium",
+          "benefits": [
+            "Faba beans add nitrogen to the soil for the next crop",
+            "Breaks the disease cycle of wheat",
+            "Uses a little less water than your current rotation"
+          ],
+          "risks": [
+            "Faba beans are sensitive to a late frost in February",
+            "Watch for broomrape (orobanche) in the bean year"
+          ],
+          "summary": "Replacing one wheat year with faba beans feeds the soil and cuts fertilizer needs for the wheat that follows. Water use stays about the same.",
+          "name_ar": "الخيار أ: إضافة الفول",
+          "benefits_ar": [
+            "الفول يضيف الآزوت للتربة لصالح المحصول التالي",
+            "يقطع دورة أمراض القمح",
+            "يستهلك ماءً أقل بقليل من دورتك الحالية"
+          ],
+          "risks_ar": [
+            "الفول حساس للصقيع المتأخر في فبراير",
+            "راقب نبات الهالوك (الأوروبانش) في سنة الفول"
+          ],
+          "summary_ar": "استبدال سنة قمح بالفول يغذي التربة ويقلل حاجة القمح الذي يليه إلى السماد. استهلاك الماء يبقى تقريباً نفسه.",
+          "name_fr": "Option A : ajouter la féverole",
+          "benefits_fr": [
+            "Ajoute environ 120 kg d’azote par hectare pour le blé suivant",
+            "Réduit la pression des maladies du blé",
+            "Ne demande pas plus d’eau que le blé"
+          ],
+          "risks_fr": [
+            "Gel tardif en février",
+            "Orobanche dans certaines parcelles",
+            "Il faut apprendre une nouvelle culture"
+          ],
+          "summary_fr": "C’est le meilleur compromis : un tiers de la rotation nourrit le sol et vous achetez moins d’engrais azoté."
+        },
+        {
+          "id": "b",
+          "name": "Option B: chickpea and alfalfa",
+          "years": [
+            [
+              {
+                "crop": "durum-wheat",
+                "start": 11,
+                "end": 6
+              }
+            ],
+            [
+              {
+                "crop": "chickpea",
+                "start": 2,
+                "end": 6
+              }
+            ],
+            [
+              {
+                "crop": "alfalfa",
+                "start": 9,
+                "end": 8
+              }
+            ]
+          ],
+          "waterMm": 650,
+          "nitrogenKgHa": 87,
+          "soilScore": 5,
+          "erosionRisk": "Low",
+          "benefits": [
+            "The most nitrogen and the best soil structure of the three",
+            "Alfalfa covers the soil all year and stops erosion",
+            "Alfalfa can feed your livestock or be sold as fodder"
+          ],
+          "risks": [
+            "Needs the most irrigation water: about 1,200 mm in the alfalfa year",
+            "Risky if your water allocation is cut in a dry year like 2024"
+          ],
+          "summary": "The best option for the soil, but it needs the most water. Choose it only if your irrigation supply is reliable.",
+          "name_ar": "الخيار ب: الحمص والفصة",
+          "benefits_ar": [
+            "أكبر كمية من الآزوت وأفضل بنية للتربة بين الثلاثة",
+            "الفصة تغطي التربة طوال السنة وتمنع الانجراف",
+            "يمكن أن تطعم الفصة ماشيتك أو تُباع علفاً"
+          ],
+          "risks_ar": [
+            "تحتاج أكبر كمية من ماء السقي: حوالي 1200 ملم في سنة الفصة",
+            "مخاطرة إذا قُلِّصت حصتك من الماء في سنة جافة مثل 2024"
+          ],
+          "summary_ar": "أفضل خيار للتربة، لكنه يحتاج أكثر ماء. اختره فقط إذا كان ماء السقي مضموناً.",
+          "name_fr": "Option B : pois chiche et luzerne",
+          "benefits_fr": [
+            "Deux légumineuses qui fixent l’azote",
+            "La luzerne protège le sol toute l’année",
+            "Fourrage pour les animaux si vous en avez"
+          ],
+          "risks_fr": [
+            "La luzerne consomme beaucoup d’eau",
+            "Trois coupes par saison",
+            "Moins rentable sans bétail"
+          ],
+          "summary_fr": "La plus forte amélioration du sol, mais elle demande plus d’eau et de travail que l’option A."
+        }
+      ],
+      "recommendation": "a",
+      "recommendationText": "Option A is the safest improvement. It feeds the soil with faba beans without asking for more water, which matters after a dry year.",
+      "label_ar": "سهل مسقي",
+      "recommendationText_ar": "الخيار أ هو التحسين الأكثر أماناً. يغذي التربة بالفول دون أن يطلب ماءً أكثر، وهذا مهم بعد سنة جافة.",
+      "label_fr": "Plaine irriguée",
+      "recommendationText_fr": "L’option A est l’amélioration la plus sûre. Elle nourrit le sol avec la féverole sans demander plus d’eau, ce qui compte après une année sèche."
+    },
+    "rainfed-plateau": {
+      "label": "Rain-fed plateau",
+      "scenarios": [
+        {
+          "id": "current",
+          "name": "Your current rotation",
+          "years": [
+            [
+              {
+                "crop": "durum-wheat",
+                "start": 11,
+                "end": 6
+              }
+            ],
+            [
+              {
+                "crop": "barley",
+                "start": 11,
+                "end": 5
+              }
+            ],
+            [
+              {
+                "crop": "durum-wheat",
+                "start": 11,
+                "end": 6
+              }
+            ]
+          ],
+          "waterMm": 417,
+          "nitrogenKgHa": 0,
+          "soilScore": 2,
+          "erosionRisk": "High",
+          "benefits": [
+            "Low cost and well known",
+            "Cereals are easy to sell"
+          ],
+          "risks": [
+            "Only cereals: soil nitrogen drops every year",
+            "Stubble is often grazed, leaving bare soil on slopes",
+            "A dry spring can ruin all three years in the same way"
+          ],
+          "summary": "Three cereal years in a row leaves the soil hungry and bare. One bad spring hurts every year of the rotation the same way.",
+          "name_ar": "دورتك الحالية",
+          "benefits_ar": [
+            "تكلفة منخفضة ومعروفة",
+            "الحبوب سهلة البيع"
+          ],
+          "risks_ar": [
+            "حبوب فقط: آزوت التربة ينقص كل سنة",
+            "غالباً ما يُرعى الحصيد فتبقى التربة عارية على المنحدرات",
+            "ربيع جاف واحد قد يُفسد السنوات الثلاث بالطريقة نفسها"
+          ],
+          "summary_ar": "ثلاث سنوات من الحبوب متتالية تترك التربة جائعة وعارية. ربيع سيئ واحد يضر بكل سنوات الدورة بالطريقة نفسها.",
+          "name_fr": "Votre rotation actuelle",
+          "benefits_fr": [
+            "Peu coûteuse et bien connue",
+            "Les céréales se vendent facilement"
+          ],
+          "risks_fr": [
+            "Céréales uniquement : l’azote du sol baisse chaque année",
+            "Le chaume est souvent pâturé, laissant le sol nu sur les pentes",
+            "Un printemps sec peut ruiner les trois années de la même façon"
+          ],
+          "summary_fr": "Trois années de céréales laissent le sol affamé et nu. Un mauvais printemps touche chaque année de la rotation de la même manière."
+        },
+        {
+          "id": "a",
+          "name": "Option A: add chickpea",
+          "years": [
+            [
+              {
+                "crop": "durum-wheat",
+                "start": 11,
+                "end": 6
+              }
+            ],
+            [
+              {
+                "crop": "chickpea",
+                "start": 2,
+                "end": 6
+              }
+            ],
+            [
+              {
+                "crop": "barley",
+                "start": 11,
+                "end": 5
+              }
+            ]
+          ],
+          "waterMm": 367,
+          "nitrogenKgHa": 20,
+          "soilScore": 3,
+          "erosionRisk": "Medium",
+          "benefits": [
+            "Chickpea needs little water and is sown after the winter rains",
+            "Adds some nitrogen and spreads the risk across seasons"
+          ],
+          "risks": [
+            "Chickpea is sensitive to Ascochyta blight in wet springs"
+          ],
+          "summary": "Spring chickpea uses less water and adds some nitrogen. It also spreads your risk: a bad winter does not ruin every crop.",
+          "name_ar": "الخيار أ: إضافة الحمص",
+          "benefits_ar": [
+            "الحمص يحتاج ماءً قليلاً ويُزرع بعد أمطار الشتاء",
+            "يضيف بعض الآزوت ويوزع المخاطر على المواسم"
+          ],
+          "risks_ar": [
+            "الحمص حساس لمرض اللفحة (الأسكوكيتا) في الربيع الممطر"
+          ],
+          "summary_ar": "الحمص الربيعي يستهلك ماءً أقل ويضيف بعض الآزوت. كما يوزع المخاطر: شتاء سيئ لا يُفسد كل المحاصيل.",
+          "name_fr": "Option A : ajouter le pois chiche",
+          "benefits_fr": [
+            "Le pois chiche demande peu d’eau et se sème après les pluies d’hiver",
+            "Ajoute de l’azote et répartit le risque entre les saisons"
+          ],
+          "risks_fr": [
+            "Le pois chiche craint l’ascochytose au printemps humide"
+          ],
+          "summary_fr": "Le pois chiche de printemps consomme moins d’eau et apporte de l’azote. Il répartit aussi le risque : un mauvais hiver ne ruine pas toutes les cultures."
+        },
+        {
+          "id": "b",
+          "name": "Option B: add lentil and faba bean",
+          "years": [
+            [
+              {
+                "crop": "durum-wheat",
+                "start": 11,
+                "end": 6
+              }
+            ],
+            [
+              {
+                "crop": "lentil",
+                "start": 12,
+                "end": 5
+              }
+            ],
+            [
+              {
+                "crop": "durum-wheat",
+                "start": 11,
+                "end": 6
+              }
+            ],
+            [
+              {
+                "crop": "faba-bean",
+                "start": 11,
+                "end": 5
+              }
+            ]
+          ],
+          "waterMm": 395,
+          "nitrogenKgHa": 43,
+          "soilScore": 4,
+          "erosionRisk": "Medium",
+          "benefits": [
+            "Two legume years: the most nitrogen on rain-fed land",
+            "Wheat always follows a legume, so it needs less fertilizer"
+          ],
+          "risks": [
+            "Four-year cycle is longer to plan",
+            "Lentil harvest needs labour or a suitable harvester"
+          ],
+          "summary": "A legume every second year keeps the soil fed. It takes more planning, but wheat yields hold up with less fertilizer.",
+          "name_ar": "الخيار ب: إضافة العدس والفول",
+          "benefits_ar": [
+            "سنتان من البقوليات: أكبر كمية آزوت في الأراضي البورية",
+            "القمح يأتي دائماً بعد بقولية، فيحتاج سماداً أقل"
+          ],
+          "risks_ar": [
+            "دورة من أربع سنوات أطول في التخطيط",
+            "حصاد العدس يحتاج يداً عاملة أو حاصدة مناسبة"
+          ],
+          "summary_ar": "بقولية كل سنتين تبقي التربة مغذاة. تحتاج تخطيطاً أكثر، لكن مردود القمح يصمد بسماد أقل.",
+          "name_fr": "Option B : ajouter lentille et féverole",
+          "benefits_fr": [
+            "Deux années de légumineuses : le plus d’azote en bour",
+            "Le blé suit toujours une légumineuse, il demande donc moins d’engrais"
+          ],
+          "risks_fr": [
+            "Un cycle de quatre ans est plus long à planifier",
+            "La récolte de la lentille demande de la main-d’œuvre ou une machine adaptée"
+          ],
+          "summary_fr": "Une légumineuse un an sur deux nourrit le sol. Il faut plus de planification, mais le blé tient avec moins d’engrais."
+        }
+      ],
+      "recommendation": "a",
+      "recommendationText": "Option A is the easiest step: one chickpea year uses less water and lowers your risk in a dry spring. Move to Option B later if it works well.",
+      "label_ar": "هضبة بورية",
+      "recommendationText_ar": "الخيار أ هو أسهل خطوة: سنة حمص واحدة تستهلك ماءً أقل وتقلل المخاطر في ربيع جاف. انتقل إلى الخيار ب لاحقاً إذا نجح.",
+      "label_fr": "Plateau bour",
+      "recommendationText_fr": "L’option A est le pas le plus simple : une année de pois chiche consomme moins d’eau et réduit le risque au printemps sec. Passez à l’option B plus tard si cela fonctionne."
+    },
+    "oasis": {
+      "label": "Oasis",
+      "scenarios": [
+        {
+          "id": "current",
+          "name": "Your current rotation",
+          "years": [
+            [
+              {
+                "crop": "alfalfa",
+                "start": 9,
+                "end": 8
+              }
+            ],
+            [
+              {
+                "crop": "alfalfa",
+                "start": 9,
+                "end": 8
+              }
+            ],
+            [
+              {
+                "crop": "barley",
+                "start": 11,
+                "end": 5
+              }
+            ]
+          ],
+          "waterMm": 917,
+          "nitrogenKgHa": 133,
+          "soilScore": 4,
+          "erosionRisk": "Low",
+          "benefits": [
+            "Alfalfa feeds livestock and adds a lot of nitrogen",
+            "Ground stays covered under the palms"
+          ],
+          "risks": [
+            "Very high water use in an area with almost no rain",
+            "Pumping lowers the water table for the whole oasis"
+          ],
+          "summary": "Good for the soil, but alfalfa drinks a lot of water. In the Tafilalet, the water table is the main limit.",
+          "name_ar": "دورتك الحالية",
+          "benefits_ar": [
+            "الفصة تطعم الماشية وتضيف الكثير من الآزوت",
+            "الأرض تبقى مغطاة تحت النخيل"
+          ],
+          "risks_ar": [
+            "استهلاك ماء مرتفع جداً في منطقة شبه بلا مطر",
+            "الضخ يُخفض الفرشة المائية للواحة كلها"
+          ],
+          "summary_ar": "جيدة للتربة، لكن الفصة تشرب الكثير من الماء. في تافيلالت، الفرشة المائية هي الحد الأساسي.",
+          "name_fr": "Votre rotation actuelle",
+          "benefits_fr": [
+            "La luzerne nourrit le bétail et apporte beaucoup d’azote",
+            "Le sol reste couvert sous les palmiers"
+          ],
+          "risks_fr": [
+            "Très forte consommation d’eau dans une zone presque sans pluie",
+            "Le pompage baisse la nappe pour toute l’oasis"
+          ],
+          "summary_fr": "Bon pour le sol, mais la luzerne boit beaucoup d’eau. Dans le Tafilalet, la nappe est la limite principale."
+        },
+        {
+          "id": "a",
+          "name": "Option A: barley and faba bean",
+          "years": [
+            [
+              {
+                "crop": "barley",
+                "start": 11,
+                "end": 5
+              }
+            ],
+            [
+              {
+                "crop": "faba-bean",
+                "start": 11,
+                "end": 4
+              }
+            ],
+            [
+              {
+                "crop": "alfalfa",
+                "start": 9,
+                "end": 8
+              }
+            ]
+          ],
+          "waterMm": 643,
+          "nitrogenKgHa": 107,
+          "soilScore": 4,
+          "erosionRisk": "Low",
+          "benefits": [
+            "Saves about 270 mm of water per year compared to now",
+            "Still two legume years for nitrogen"
+          ],
+          "risks": [
+            "Less fodder for livestock in the barley and bean years"
+          ],
+          "summary": "Keeping one alfalfa year instead of two saves a lot of water, and the soil still gets nitrogen from faba beans.",
+          "name_ar": "الخيار أ: الشعير والفول",
+          "benefits_ar": [
+            "توفر حوالي 270 ملم من الماء في السنة مقارنة بالآن",
+            "ما زالت هناك سنتان من البقوليات للآزوت"
+          ],
+          "risks_ar": [
+            "علف أقل للماشية في سنتي الشعير والفول"
+          ],
+          "summary_ar": "الاحتفاظ بسنة فصة واحدة بدل اثنتين يوفر الكثير من الماء، والتربة تحصل على الآزوت من الفول.",
+          "name_fr": "Option A : orge et féverole",
+          "benefits_fr": [
+            "Économise environ 270 mm d’eau par an par rapport à aujourd’hui",
+            "Conserve deux années de légumineuses pour l’azote"
+          ],
+          "risks_fr": [
+            "Moins de fourrage pour le bétail les années d’orge et de féverole"
+          ],
+          "summary_fr": "Garder une année de luzerne au lieu de deux économise beaucoup d’eau, et le sol reçoit quand même de l’azote grâce à la féverole."
+        },
+        {
+          "id": "b",
+          "name": "Option B: winter crops only",
+          "years": [
+            [
+              {
+                "crop": "barley",
+                "start": 11,
+                "end": 5
+              }
+            ],
+            [
+              {
+                "crop": "faba-bean",
+                "start": 11,
+                "end": 4
+              }
+            ],
+            [
+              {
+                "crop": "barley",
+                "start": 11,
+                "end": 5
+              }
+            ]
+          ],
+          "waterMm": 360,
+          "nitrogenKgHa": 40,
+          "soilScore": 3,
+          "erosionRisk": "Medium",
+          "benefits": [
+            "Uses the least water by far",
+            "Avoids irrigating in the hottest months"
+          ],
+          "risks": [
+            "No summer fodder for animals",
+            "Soil is bare in summer, so wind can carry it away"
+          ],
+          "summary": "The most water-saving choice. It fits if water is very scarce, but your animals will need fodder from elsewhere in summer.",
+          "name_ar": "الخيار ب: محاصيل شتوية فقط",
+          "benefits_ar": [
+            "أقل استهلاك للماء بفارق كبير",
+            "تتجنب السقي في أشد الشهور حرارة"
+          ],
+          "risks_ar": [
+            "لا علف صيفي للحيوانات",
+            "التربة عارية في الصيف فقد تحملها الرياح"
+          ],
+          "summary_ar": "الخيار الأكثر توفيراً للماء. يناسب إذا كان الماء نادراً جداً، لكن ماشيتك ستحتاج علفاً من مكان آخر في الصيف.",
+          "name_fr": "Option B : cultures d’hiver seulement",
+          "benefits_fr": [
+            "De loin la moins consommatrice d’eau",
+            "Évite d’irriguer aux mois les plus chauds"
+          ],
+          "risks_fr": [
+            "Pas de fourrage d’été pour les animaux",
+            "Le sol est nu en été, le vent peut l’emporter"
+          ],
+          "summary_fr": "Le choix qui économise le plus d’eau. Il convient si l’eau est très rare, mais vos animaux auront besoin de fourrage venu d’ailleurs en été."
+        }
+      ],
+      "recommendation": "a",
+      "recommendationText": "Option A keeps fodder and soil nitrogen while cutting water use by about a third. That balance suits most oasis farms.",
+      "label_ar": "واحة",
+      "recommendationText_ar": "الخيار أ يحافظ على العلف وآزوت التربة مع خفض استهلاك الماء بحوالي الثلث. هذا التوازن يناسب أغلب ضيعات الواحات.",
+      "label_fr": "Oasis",
+      "recommendationText_fr": "L’option A garde le fourrage et l’azote du sol tout en réduisant l’eau d’environ un tiers. Cet équilibre convient à la plupart des exploitations de l’oasis."
+    }
+  },
+  "note_ar": "تقديرات زراعية محاكاة للعرض. احتياجات الماء هي احتياجات نموذجية للمحاصيل في ظروف المغرب، وليست قياسات حقلية. الآزوت هو متوسط التثبيت السنوي بالبقوليات، وليس وفورات معادلة للسماد.",
+  "note_fr": "Estimations agronomiques simulées pour la démonstration. Les besoins en eau correspondent à des valeurs typiques au Maroc, pas à des mesures de terrain. L’azote est la fixation annuelle moyenne des légumineuses, pas une économie équivalente d’engrais."
+}

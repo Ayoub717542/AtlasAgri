@@ -1,0 +1,387 @@
+{
+  "dataset": "GPM IMERG Final V07 (simulated monthly totals)",
+  "version": "V07",
+  "run": "Final (gauge-adjusted, research-quality; about 3.5-month latency)",
+  "source": "NASA GES DISC",
+  "resolution": "0.1° × 0.1° (about 11 km at the equator)",
+  "resolutionKm": 11,
+  "temporalResolution": "monthly totals derived from daily data",
+  "units": {
+    "precip": "mm/month"
+  },
+  "normalPeriod": "2001–2020 (20 years)",
+  "simulated": true,
+  "note": "Simulated for demonstration. Not a real NASA or FAO measurement.",
+  "locations": {
+    "beni-mellal": [
+      {
+        "month": "2024-01",
+        "precip": 42.7,
+        "normal": 60,
+        "rainyDays": 5
+      },
+      {
+        "month": "2024-02",
+        "precip": 41.9,
+        "normal": 60,
+        "rainyDays": 6
+      },
+      {
+        "month": "2024-03",
+        "precip": 45.9,
+        "normal": 65,
+        "rainyDays": 5
+      },
+      {
+        "month": "2024-04",
+        "precip": 43.8,
+        "normal": 55,
+        "rainyDays": 5
+      },
+      {
+        "month": "2024-05",
+        "precip": 22.6,
+        "normal": 30,
+        "rainyDays": 2
+      },
+      {
+        "month": "2024-06",
+        "precip": 4.9,
+        "normal": 8,
+        "rainyDays": 0
+      },
+      {
+        "month": "2024-07",
+        "precip": 2.1,
+        "normal": 2,
+        "rainyDays": 0
+      },
+      {
+        "month": "2024-08",
+        "precip": 2.8,
+        "normal": 5,
+        "rainyDays": 1
+      },
+      {
+        "month": "2024-09",
+        "precip": 11.2,
+        "normal": 15,
+        "rainyDays": 2
+      },
+      {
+        "month": "2024-10",
+        "precip": 24.4,
+        "normal": 40,
+        "rainyDays": 3
+      },
+      {
+        "month": "2024-11",
+        "precip": 63,
+        "normal": 60,
+        "rainyDays": 7
+      },
+      {
+        "month": "2024-12",
+        "precip": 57.2,
+        "normal": 65,
+        "rainyDays": 7
+      }
+    ],
+    "meknes": [
+      {
+        "month": "2024-01",
+        "precip": 52.3,
+        "normal": 75,
+        "rainyDays": 6
+      },
+      {
+        "month": "2024-02",
+        "precip": 68.3,
+        "normal": 70,
+        "rainyDays": 9
+      },
+      {
+        "month": "2024-03",
+        "precip": 39.4,
+        "normal": 70,
+        "rainyDays": 5
+      },
+      {
+        "month": "2024-04",
+        "precip": 62.5,
+        "normal": 60,
+        "rainyDays": 8
+      },
+      {
+        "month": "2024-05",
+        "precip": 22,
+        "normal": 35,
+        "rainyDays": 3
+      },
+      {
+        "month": "2024-06",
+        "precip": 6.3,
+        "normal": 10,
+        "rainyDays": 1
+      },
+      {
+        "month": "2024-07",
+        "precip": 1.6,
+        "normal": 2,
+        "rainyDays": 0
+      },
+      {
+        "month": "2024-08",
+        "precip": 2.7,
+        "normal": 3,
+        "rainyDays": 0
+      },
+      {
+        "month": "2024-09",
+        "precip": 10.6,
+        "normal": 15,
+        "rainyDays": 1
+      },
+      {
+        "month": "2024-10",
+        "precip": 37,
+        "normal": 50,
+        "rainyDays": 5
+      },
+      {
+        "month": "2024-11",
+        "precip": 53.9,
+        "normal": 80,
+        "rainyDays": 6
+      },
+      {
+        "month": "2024-12",
+        "precip": 97,
+        "normal": 85,
+        "rainyDays": 12
+      }
+    ],
+    "settat": [
+      {
+        "month": "2024-01",
+        "precip": 38.6,
+        "normal": 55,
+        "rainyDays": 4
+      },
+      {
+        "month": "2024-02",
+        "precip": 42.2,
+        "normal": 50,
+        "rainyDays": 5
+      },
+      {
+        "month": "2024-03",
+        "precip": 25.2,
+        "normal": 45,
+        "rainyDays": 3
+      },
+      {
+        "month": "2024-04",
+        "precip": 28.7,
+        "normal": 35,
+        "rainyDays": 3
+      },
+      {
+        "month": "2024-05",
+        "precip": 13.9,
+        "normal": 15,
+        "rainyDays": 2
+      },
+      {
+        "month": "2024-06",
+        "precip": 2,
+        "normal": 3,
+        "rainyDays": 1
+      },
+      {
+        "month": "2024-07",
+        "precip": 0.9,
+        "normal": 1,
+        "rainyDays": 0
+      },
+      {
+        "month": "2024-08",
+        "precip": 0.7,
+        "normal": 1,
+        "rainyDays": 0
+      },
+      {
+        "month": "2024-09",
+        "precip": 6.6,
+        "normal": 8,
+        "rainyDays": 0
+      },
+      {
+        "month": "2024-10",
+        "precip": 25.7,
+        "normal": 35,
+        "rainyDays": 3
+      },
+      {
+        "month": "2024-11",
+        "precip": 34.3,
+        "normal": 55,
+        "rainyDays": 4
+      },
+      {
+        "month": "2024-12",
+        "precip": 33.8,
+        "normal": 60,
+        "rainyDays": 5
+      }
+    ],
+    "marrakech": [
+      {
+        "month": "2024-01",
+        "precip": 18.7,
+        "normal": 32,
+        "rainyDays": 2
+      },
+      {
+        "month": "2024-02",
+        "precip": 41.7,
+        "normal": 38,
+        "rainyDays": 6
+      },
+      {
+        "month": "2024-03",
+        "precip": 29.1,
+        "normal": 38,
+        "rainyDays": 3
+      },
+      {
+        "month": "2024-04",
+        "precip": 38.6,
+        "normal": 35,
+        "rainyDays": 5
+      },
+      {
+        "month": "2024-05",
+        "precip": 13.5,
+        "normal": 18,
+        "rainyDays": 1
+      },
+      {
+        "month": "2024-06",
+        "precip": 3.4,
+        "normal": 6,
+        "rainyDays": 1
+      },
+      {
+        "month": "2024-07",
+        "precip": 1.8,
+        "normal": 2,
+        "rainyDays": 1
+      },
+      {
+        "month": "2024-08",
+        "precip": 2.9,
+        "normal": 3,
+        "rainyDays": 1
+      },
+      {
+        "month": "2024-09",
+        "precip": 4.9,
+        "normal": 8,
+        "rainyDays": 1
+      },
+      {
+        "month": "2024-10",
+        "precip": 13,
+        "normal": 23,
+        "rainyDays": 1
+      },
+      {
+        "month": "2024-11",
+        "precip": 27.1,
+        "normal": 40,
+        "rainyDays": 3
+      },
+      {
+        "month": "2024-12",
+        "precip": 29.5,
+        "normal": 31,
+        "rainyDays": 4
+      }
+    ],
+    "errachidia": [
+      {
+        "month": "2024-01",
+        "precip": 4.3,
+        "normal": 6,
+        "rainyDays": 0
+      },
+      {
+        "month": "2024-02",
+        "precip": 7.6,
+        "normal": 8,
+        "rainyDays": 1
+      },
+      {
+        "month": "2024-03",
+        "precip": 9.1,
+        "normal": 12,
+        "rainyDays": 1
+      },
+      {
+        "month": "2024-04",
+        "precip": 6.4,
+        "normal": 8,
+        "rainyDays": 1
+      },
+      {
+        "month": "2024-05",
+        "precip": 9,
+        "normal": 10,
+        "rainyDays": 1
+      },
+      {
+        "month": "2024-06",
+        "precip": 6.2,
+        "normal": 6,
+        "rainyDays": 1
+      },
+      {
+        "month": "2024-07",
+        "precip": 3.4,
+        "normal": 3,
+        "rainyDays": 0
+      },
+      {
+        "month": "2024-08",
+        "precip": 5.1,
+        "normal": 6,
+        "rainyDays": 0
+      },
+      {
+        "month": "2024-09",
+        "precip": 8.1,
+        "normal": 12,
+        "rainyDays": 1
+      },
+      {
+        "month": "2024-10",
+        "precip": 13.8,
+        "normal": 13,
+        "rainyDays": 3
+      },
+      {
+        "month": "2024-11",
+        "precip": 11.1,
+        "normal": 10,
+        "rainyDays": 2
+      },
+      {
+        "month": "2024-12",
+        "precip": 7.3,
+        "normal": 8,
+        "rainyDays": 0
+      }
+    ]
+  }
+}

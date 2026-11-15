@@ -1,0 +1,62 @@
+{
+  "durum-wheat": {
+    "file": "/crops/durum-wheat.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Triticum_durum.jpg",
+    "license": "CC BY-SA 3.0",
+    "author": ""
+  },
+  "barley": {
+    "file": "/crops/barley.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Barley_(Hordeum_vulgare)_-_United_States_National_Arboretum_-_24_May_2009.jpg",
+    "license": "CC BY 2.0",
+    "author": "Cliff from Arlington, Virginia, USA"
+  },
+  "chickpea": {
+    "file": "/crops/chickpea.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_3025_Chickpeas_in_glasshouse.jpg",
+    "license": "CC BY 3.0",
+    "author": "Carl Davies, CSIRO"
+  },
+  "faba-bean": {
+    "file": "/crops/faba-bean.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Broad_bean_crop_in_flower_-_geograph.org.uk_-_180835.jpg",
+    "license": "CC BY-SA 2.0",
+    "author": "David Hawgood"
+  },
+  "lentil": {
+    "file": "/crops/lentil.png",
+    "source": "https://commons.wikimedia.org/wiki/File:3_types_of_lentil.png",
+    "license": "CC BY-SA 2.5",
+    "author": "User:Justinc"
+  },
+  "sugar-beet": {
+    "file": "/crops/sugar-beet.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Sugar_beet_harvest_-_geograph.org.uk_-_566296.jpg",
+    "license": "CC BY-SA 2.0",
+    "author": "Evelyn Simak"
+  },
+  "alfalfa": {
+    "file": "/crops/alfalfa.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:%D9%85%D8%B2%D8%B1%D8%B9%D9%87_%DB%8C%D9%88%D9%86%D8%AC%D9%87_-Medicago_sativa_01.jpg",
+    "license": "CC BY-SA 4.0",
+    "author": "Mahdikarimi70"
+  },
+  "olive": {
+    "file": "/crops/olive.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Olivesfromjordan.jpg",
+    "license": "CC BY-SA 3.0",
+    "author": "en:User:Nickfraser"
+  },
+  "maize": {
+    "file": "/crops/maize.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Maize_Cobs_-_geograph.org.uk_-_984477.jpg",
+    "license": "CC BY-SA 2.0",
+    "author": "Sarah Smith"
+  },
+  "date-palm": {
+    "file": "/crops/date-palm.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Dates005.jpg",
+    "license": "CC BY-SA 3.0",
+    "author": "Nepenthes"
+  }
+}

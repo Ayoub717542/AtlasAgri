@@ -1,0 +1,325 @@
+{
+  "dataset": "SMAP L4 Surface and Root Zone Soil Moisture (SPL4SMGP.008)",
+  "source": "NASA NSIDC DAAC via AppEEARS",
+  "method": "Assimilation of SMAP L-band radiometer brightness temperature into the NASA GEOS-5 land-surface model; not radar.",
+  "resolution": "9 km EASE-Grid 2.0",
+  "resolutionKm": 9,
+  "units": {
+    "surface": "m³/m³ (0–5 cm)",
+    "rootzone": "m³/m³ (0–100 cm)"
+  },
+  "simulated": true,
+  "note": "Simulated for demonstration. Not a real NASA or FAO measurement.",
+  "locations": {
+    "beni-mellal": [
+      {
+        "month": "2024-01",
+        "surface": 0.208,
+        "rootzone": 0.159
+      },
+      {
+        "month": "2024-02",
+        "surface": 0.213,
+        "rootzone": 0.184
+      },
+      {
+        "month": "2024-03",
+        "surface": 0.211,
+        "rootzone": 0.203
+      },
+      {
+        "month": "2024-04",
+        "surface": 0.22,
+        "rootzone": 0.214
+      },
+      {
+        "month": "2024-05",
+        "surface": 0.156,
+        "rootzone": 0.203
+      },
+      {
+        "month": "2024-06",
+        "surface": 0.085,
+        "rootzone": 0.182
+      },
+      {
+        "month": "2024-07",
+        "surface": 0.075,
+        "rootzone": 0.165
+      },
+      {
+        "month": "2024-08",
+        "surface": 0.08,
+        "rootzone": 0.155
+      },
+      {
+        "month": "2024-09",
+        "surface": 0.117,
+        "rootzone": 0.156
+      },
+      {
+        "month": "2024-10",
+        "surface": 0.151,
+        "rootzone": 0.167
+      },
+      {
+        "month": "2024-11",
+        "surface": 0.265,
+        "rootzone": 0.207
+      },
+      {
+        "month": "2024-12",
+        "surface": 0.253,
+        "rootzone": 0.227
+      }
+    ],
+    "meknes": [
+      {
+        "month": "2024-01",
+        "surface": 0.242,
+        "rootzone": 0.167
+      },
+      {
+        "month": "2024-02",
+        "surface": 0.287,
+        "rootzone": 0.211
+      },
+      {
+        "month": "2024-03",
+        "surface": 0.206,
+        "rootzone": 0.215
+      },
+      {
+        "month": "2024-04",
+        "surface": 0.26,
+        "rootzone": 0.238
+      },
+      {
+        "month": "2024-05",
+        "surface": 0.143,
+        "rootzone": 0.218
+      },
+      {
+        "month": "2024-06",
+        "surface": 0.092,
+        "rootzone": 0.193
+      },
+      {
+        "month": "2024-07",
+        "surface": 0.08,
+        "rootzone": 0.172
+      },
+      {
+        "month": "2024-08",
+        "surface": 0.08,
+        "rootzone": 0.16
+      },
+      {
+        "month": "2024-09",
+        "surface": 0.123,
+        "rootzone": 0.158
+      },
+      {
+        "month": "2024-10",
+        "surface": 0.198,
+        "rootzone": 0.179
+      },
+      {
+        "month": "2024-11",
+        "surface": 0.245,
+        "rootzone": 0.207
+      },
+      {
+        "month": "2024-12",
+        "surface": 0.374,
+        "rootzone": 0.261
+      }
+    ],
+    "settat": [
+      {
+        "month": "2024-01",
+        "surface": 0.197,
+        "rootzone": 0.156
+      },
+      {
+        "month": "2024-02",
+        "surface": 0.211,
+        "rootzone": 0.182
+      },
+      {
+        "month": "2024-03",
+        "surface": 0.157,
+        "rootzone": 0.185
+      },
+      {
+        "month": "2024-04",
+        "surface": 0.156,
+        "rootzone": 0.189
+      },
+      {
+        "month": "2024-05",
+        "surface": 0.125,
+        "rootzone": 0.18
+      },
+      {
+        "month": "2024-06",
+        "surface": 0.09,
+        "rootzone": 0.164
+      },
+      {
+        "month": "2024-07",
+        "surface": 0.074,
+        "rootzone": 0.153
+      },
+      {
+        "month": "2024-08",
+        "surface": 0.089,
+        "rootzone": 0.146
+      },
+      {
+        "month": "2024-09",
+        "surface": 0.093,
+        "rootzone": 0.146
+      },
+      {
+        "month": "2024-10",
+        "surface": 0.147,
+        "rootzone": 0.162
+      },
+      {
+        "month": "2024-11",
+        "surface": 0.183,
+        "rootzone": 0.179
+      },
+      {
+        "month": "2024-12",
+        "surface": 0.188,
+        "rootzone": 0.19
+      }
+    ],
+    "marrakech": [
+      {
+        "month": "2024-01",
+        "surface": 0.13,
+        "rootzone": 0.139
+      },
+      {
+        "month": "2024-02",
+        "surface": 0.205,
+        "rootzone": 0.171
+      },
+      {
+        "month": "2024-03",
+        "surface": 0.175,
+        "rootzone": 0.181
+      },
+      {
+        "month": "2024-04",
+        "surface": 0.2,
+        "rootzone": 0.195
+      },
+      {
+        "month": "2024-05",
+        "surface": 0.121,
+        "rootzone": 0.184
+      },
+      {
+        "month": "2024-06",
+        "surface": 0.098,
+        "rootzone": 0.168
+      },
+      {
+        "month": "2024-07",
+        "surface": 0.093,
+        "rootzone": 0.156
+      },
+      {
+        "month": "2024-08",
+        "surface": 0.083,
+        "rootzone": 0.149
+      },
+      {
+        "month": "2024-09",
+        "surface": 0.088,
+        "rootzone": 0.147
+      },
+      {
+        "month": "2024-10",
+        "surface": 0.123,
+        "rootzone": 0.152
+      },
+      {
+        "month": "2024-11",
+        "surface": 0.156,
+        "rootzone": 0.167
+      },
+      {
+        "month": "2024-12",
+        "surface": 0.167,
+        "rootzone": 0.178
+      }
+    ],
+    "errachidia": [
+      {
+        "month": "2024-01",
+        "surface": 0.074,
+        "rootzone": 0.117
+      },
+      {
+        "month": "2024-02",
+        "surface": 0.074,
+        "rootzone": 0.117
+      },
+      {
+        "month": "2024-03",
+        "surface": 0.07,
+        "rootzone": 0.119
+      },
+      {
+        "month": "2024-04",
+        "surface": 0.075,
+        "rootzone": 0.117
+      },
+      {
+        "month": "2024-05",
+        "surface": 0.074,
+        "rootzone": 0.119
+      },
+      {
+        "month": "2024-06",
+        "surface": 0.068,
+        "rootzone": 0.117
+      },
+      {
+        "month": "2024-07",
+        "surface": 0.052,
+        "rootzone": 0.114
+      },
+      {
+        "month": "2024-08",
+        "surface": null,
+        "rootzone": null
+      },
+      {
+        "month": "2024-09",
+        "surface": null,
+        "rootzone": null
+      },
+      {
+        "month": "2024-10",
+        "surface": 0.102,
+        "rootzone": 0.122
+      },
+      {
+        "month": "2024-11",
+        "surface": 0.09,
+        "rootzone": 0.123
+      },
+      {
+        "month": "2024-12",
+        "surface": 0.077,
+        "rootzone": 0.121
+      }
+    ]
+  }
+}

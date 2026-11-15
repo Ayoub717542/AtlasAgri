@@ -1,0 +1,142 @@
+{
+  "durum-wheat": {
+    "nitrogenFixer": false,
+    "nitrogenKgHa": 0,
+    "benefit": {
+      "en": "Returns some straw to the soil if you do not burn or graze it all.",
+      "fr": "Rend une partie de la paille au sol si vous ne la brûlez pas et ne la faites pas tout pâturer.",
+      "ar": "يعيد بعض القش إلى التربة إذا لم تحرقه أو ترعَه كله."
+    },
+    "risks": {
+      "en": ["Rust and septoria in a wet spring", "Heat above 35 °C at grain filling cuts the yield", "Needs nitrogen split across the season"],
+      "fr": ["Rouille et septoriose au printemps humide", "La chaleur au-dessus de 35 °C au remplissage du grain réduit le rendement", "Demande un azote fractionné sur la saison"],
+      "ar": ["الصدأ والسبتوريوز في الربيع الممطر", "الحرارة فوق 35 درجة عند امتلاء الحبة تقلّل المردود", "يحتاج آزوتاً مقسّماً على الموسم"]
+    }
+  },
+  "barley": {
+    "nitrogenFixer": false,
+    "nitrogenKgHa": 0,
+    "benefit": {
+      "en": "The most tolerant cereal here. Its early cover protects the soil from autumn rain.",
+      "fr": "La céréale la plus tolérante ici. Sa couverture précoce protège le sol des pluies d’automne.",
+      "ar": "أكثر حبوب تحملاً هنا. غطاؤه المبكر يحمي التربة من أمطار الخريف."
+    },
+    "risks": {
+      "en": ["Waterlogging in a wet winter", "Net blotch and leaf rust", "Late frost at heading"],
+      "fr": ["Excès d’eau en hiver humide", "Rynchosporiose et rouille des feuilles", "Gel tardif à l’épiaison"],
+      "ar": ["تشبّع التربة بالماء في شتاء ممطر", "التبقع الشبكي وصدأ الأوراق", "الصقيع المتأخر عند الإسبال"]
+    }
+  },
+  "chickpea": {
+    "nitrogenFixer": true,
+    "nitrogenKgHa": 60,
+    "benefit": {
+      "en": "Fixes nitrogen and breaks the disease cycle of cereals.",
+      "fr": "Fixe l’azote et coupe le cycle des maladies des céréales.",
+      "ar": "يثبت الآزوت ويقطع دورة أمراض الحبوب."
+    },
+    "risks": {
+      "en": ["Ascochyta blight in a wet spring", "Pod borer", "Cold at flowering"],
+      "fr": ["Ascochytose au printemps humide", "Foreuse des gousses", "Froid à la floraison"],
+      "ar": ["مرض الأسكوكيتا في الربيع الممطر", "حفار القرون", "البرد عند الإزهار"]
+    }
+  },
+  "faba-bean": {
+    "nitrogenFixer": true,
+    "nitrogenKgHa": 120,
+    "benefit": {
+      "en": "The strongest nitrogen fixer of the winter crops here, and a good break for wheat.",
+      "fr": "La légumineuse d’hiver qui fixe le plus d’azote ici, et une bonne coupure pour le blé.",
+      "ar": "أقوى مثبّت للآزوت بين محاصيل الشتاء هنا، ويقطع دورة القمح جيداً."
+    },
+    "risks": {
+      "en": ["Late frost in February", "Broomrape (orobanche)", "Aphids and chocolate spot"],
+      "fr": ["Gel tardif en février", "Orobanche", "Pucerons et tache chocolat"],
+      "ar": ["الصقيع المتأخر في فبراير", "الهالوك (الأوروبانش)", "المنّ والتبقع البني"]
+    }
+  },
+  "lentil": {
+    "nitrogenFixer": true,
+    "nitrogenKgHa": 50,
+    "benefit": {
+      "en": "Leaves nitrogen for the next cereal and covers the soil early.",
+      "fr": "Laisse de l’azote pour la céréale suivante et couvre tôt le sol.",
+      "ar": "يترك الآزوت للحبوب التالية ويغطي التربة مبكراً."
+    },
+    "risks": {
+      "en": ["Ascochyta blight", "Weeds in early growth", "Harvest needs dry weather"],
+      "fr": ["Ascochytose", "Adventices au début", "La récolte exige un temps sec"],
+      "ar": ["الأسكوكيتا", "الأعشاب في النمو المبكر", "الحصاد يحتاج طقساً جافاً"]
+    }
+  },
+  "sugar-beet": {
+    "nitrogenFixer": false,
+    "nitrogenKgHa": 0,
+    "benefit": {
+      "en": "Deep roots break compaction. Leaves can be incorporated as organic matter.",
+      "fr": "Ses racines profondes cassent la compaction. Les feuilles peuvent être incorporées comme matière organique.",
+      "ar": "جذوره العميقة تكسر الانضغاط. يمكن إدماج الأوراق كمادة عضوية."
+    },
+    "risks": {
+      "en": ["Needs steady irrigation all season", "Cercospora leaf spot", "Heavy machinery compacts wet soil at harvest"],
+      "fr": ["Besoin d’une irrigation régulière", "Cercosporiose", "Les engins lourds compactent le sol humide à la récolte"],
+      "ar": ["يحتاج سقيًا منتظمًا طوال الموسم", "تبقع السيركوسبورا", "الآلات الثقيلة تضغط التربة الرطبة عند الحصاد"]
+    }
+  },
+  "alfalfa": {
+    "nitrogenFixer": true,
+    "nitrogenKgHa": 200,
+    "benefit": {
+      "en": "Deep roots, all-year cover and the highest nitrogen input of any crop here.",
+      "fr": "Racines profondes, couverture toute l’année et le plus fort apport d’azote de toutes les cultures.",
+      "ar": "جذور عميقة وغطاء طوال السنة وأعلى إضافة آزوت بين المحاصيل هنا."
+    },
+    "risks": {
+      "en": ["Very high water use", "A cut every 30 to 40 days", "Root rot in poorly drained soil"],
+      "fr": ["Très forte consommation d’eau", "Une coupe tous les 30 à 40 jours", "Pourriture des racines en sol mal drainé"],
+      "ar": ["استهلاك ماء مرتفع جداً", "حشّة كل 30 إلى 40 يوماً", "تعفن الجذور في تربة سيئة الصرف"]
+    }
+  },
+  "olive": {
+    "nitrogenFixer": false,
+    "nitrogenKgHa": 0,
+    "benefit": {
+      "en": "Permanent cover that protects slopes from erosion. Handles chalky, dry land well.",
+      "fr": "Couverture permanente qui protège les pentes de l’érosion. Supporte bien les sols calcaires et secs.",
+      "ar": "غطاء دائم يحمي المنحدرات من الانجراف. يتحمل التربة الكلسية الجافة جيداً."
+    },
+    "risks": {
+      "en": ["Olive fruit fly", "Olive knot", "Young trees need water for three to four years"],
+      "fr": ["Mouche de l’olive", "Œil de paon et tuberculose de l’olivier", "Les jeunes arbres ont besoin d’eau trois à quatre ans"],
+      "ar": ["ذبابة الزيتون", "سل الزيتون", "الأشجار الفتية تحتاج الماء ثلاث إلى أربع سنوات"]
+    }
+  },
+  "maize": {
+    "nitrogenFixer": false,
+    "nitrogenKgHa": 0,
+    "benefit": {
+      "en": "A lot of residue if the stalks are incorporated, but it draws heavily on water and nutrients.",
+      "fr": "Beaucoup de résidus si les tiges sont incorporées, mais forte consommation d’eau et d’éléments nutritifs.",
+      "ar": "مخلفات كثيرة إذا أُدمجت السيقان، لكنه يستهلك ماءً ومغذيات بكثرة."
+    },
+    "risks": {
+      "en": ["Very high summer water need", "Fall armyworm", "Heat at flowering"],
+      "fr": ["Besoin en eau estival très élevé", "Chenille légionnaire d’automne", "Chaleur à la floraison"],
+      "ar": ["حاجة ماء صيفية مرتفعة جداً", "دودة الحشد الخريفية", "الحرارة عند الإزهار"]
+    }
+  },
+  "date-palm": {
+    "nitrogenFixer": false,
+    "nitrogenKgHa": 0,
+    "benefit": {
+      "en": "Shade and wind protection for under-crops in the oasis.",
+      "fr": "Ombre et protection contre le vent pour les cultures sous-jacentes de l’oasis.",
+      "ar": "ظل وحماية من الريح للمحاصيل تحته في الواحة."
+    },
+    "risks": {
+      "en": ["Bayoud disease risk in some regions", "Deep irrigation needed in summer", "Salt build-up in the soil"],
+      "fr": ["Risque de bayoud dans certaines régions", "Irrigation profonde en été", "Accumulation de sel dans le sol"],
+      "ar": ["خطر مرض البيوض في بعض المناطق", "سقي عميق في الصيف", "تراكم الملح في التربة"]
+    }
+  }
+}

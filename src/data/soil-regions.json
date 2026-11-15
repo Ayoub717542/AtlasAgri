@@ -1,0 +1,32 @@
+{
+  "irrigated-plain": {
+    "ph": 8.0,
+    "salinity": 0.9,
+    "organic": 1.5,
+    "nitrogen": 0.09,
+    "phosphorus": 15,
+    "potassium": 300,
+    "calcium": 17,
+    "note": "Deep clay-loam of the Tadla and Haouz plains: holds water well, often alkaline and chalky."
+  },
+  "rainfed-plateau": {
+    "ph": 7.4,
+    "salinity": 0.4,
+    "organic": 1.8,
+    "nitrogen": 0.11,
+    "phosphorus": 12,
+    "potassium": 260,
+    "calcium": 8,
+    "note": "Shallow to medium plateau soil on the Saïss and Chaouia: workable, but low in phosphorus."
+  },
+  "oasis": {
+    "ph": 8.3,
+    "salinity": 1.6,
+    "organic": 0.9,
+    "nitrogen": 0.07,
+    "phosphorus": 10,
+    "potassium": 220,
+    "calcium": 22,
+    "note": "Sandy, chalky oasis soil with a salinity risk when irrigation water is pumped from a falling water table."
+  }
+}

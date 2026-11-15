@@ -1,0 +1,92 @@
+{
+  "simulated": true,
+  "model": "AtlasAgri Advisor (simulated AI output for demonstration)",
+  "generatedAt": "2024-11-02T09:14:00Z",
+  "farm": {
+    "location": "beni-mellal",
+    "plot": { "en": "Plot 3, demonstration farm", "ar": "القطعة 3، ضيعة العرض" },
+    "areaHa": 4.5,
+    "previousCrop": "durum-wheat"
+  },
+  "inputs": [
+    { "id": "soil", "source": "Soil analysis PDF BM-2024-0417 (0–30 cm)", "covers": { "en": "Your plot", "ar": "قطعتك" } },
+    { "id": "power", "source": "NASA POWER, 2024", "covers": { "en": "50 km square", "ar": "مربع 50 كلم" } },
+    { "id": "gpm", "source": "NASA GPM IMERG, 2024", "covers": { "en": "10 km square", "ar": "مربع 10 كلم" } },
+    { "id": "smap", "source": "NASA SMAP L4, 2024", "covers": { "en": "9 km square", "ar": "مربع 9 كلم" } },
+    { "id": "gaez", "source": "FAO GAEZ v5", "covers": { "en": "1 km square", "ar": "مربع 1 كلم" } }
+  ],
+  "overall": {
+    "status": "fair",
+    "score": 62,
+    "headline": {
+      "en": "Good soil, but hungry for nitrogen and organic matter",
+      "ar": "تربة جيدة، لكنها تحتاج إلى الآزوت والمادة العضوية"
+    },
+    "summary": {
+      "en": "Your soil holds water well and has plenty of potassium. It lacks nitrogen and organic matter, and 2024 was 22% drier than normal. Adding faba beans to your rotation and manure before ploughing will help the most.",
+      "ar": "تربتك تحتفظ بالماء جيداً وغنية بالبوتاسيوم. لكنها تفتقر إلى الآزوت والمادة العضوية، وكانت سنة 2024 أجف من المعتاد بنسبة 22%. أكثر ما سيساعدك: إضافة الفول إلى دورتك ووضع السماد البلدي قبل الحرث."
+    }
+  },
+  "soil": [
+    { "id": "ph", "label": { "en": "Acidity (pH)", "ar": "الحموضة (pH)" }, "value": 8.1, "unit": "", "target": "6.5–7.5", "status": "high",
+      "meaning": { "en": "Alkaline soil. Iron and zinc are harder for plants to take up.", "ar": "تربة قلوية. يصعب على النباتات امتصاص الحديد والزنك." } },
+    { "id": "salinity", "label": { "en": "Salt", "ar": "الملوحة" }, "value": 0.9, "unit": "dS/m", "target": "< 2", "status": "good",
+      "meaning": { "en": "No salt problem.", "ar": "لا توجد مشكلة ملوحة." } },
+    { "id": "organic", "label": { "en": "Organic matter", "ar": "المادة العضوية" }, "value": 1.4, "unit": "%", "target": "> 2", "status": "low",
+      "meaning": { "en": "Low. The soil holds less water and food for the plants.", "ar": "منخفضة. التربة تحتفظ بماء وغذاء أقل للنباتات." } },
+    { "id": "nitrogen", "label": { "en": "Nitrogen (N)", "ar": "الآزوت (N)" }, "value": 0.08, "unit": "%", "target": "0.10–0.20", "status": "low",
+      "meaning": { "en": "Not enough for a good wheat harvest.", "ar": "غير كافٍ لمحصول قمح جيد." } },
+    { "id": "phosphorus", "label": { "en": "Phosphorus (P)", "ar": "الفوسفور (P)" }, "value": 14, "unit": "mg/kg", "target": "15–25", "status": "medium",
+      "meaning": { "en": "Just below the good level.", "ar": "أقل بقليل من المستوى الجيد." } },
+    { "id": "potassium", "label": { "en": "Potassium (K)", "ar": "البوتاسيوم (K)" }, "value": 310, "unit": "mg/kg", "target": "200–300", "status": "good",
+      "meaning": { "en": "Plenty. No need to add more.", "ar": "وفير. لا حاجة لإضافة المزيد." } },
+    { "id": "calcium", "label": { "en": "Calcium carbonate (CaCO₃)", "ar": "الكالسيوم الكلي (CaCO₃)" }, "value": 18, "unit": "%", "target": "< 15", "status": "high",
+      "meaning": { "en": "Chalky soil. It raises the pH and makes iron and zinc harder for plants to take up.", "ar": "تربة كلسية. ترفع الحموضة وتصعب على النباتات امتصاص الحديد والزنك." } }
+  ],
+  "climate": [
+    { "id": "rain", "value": 363, "normal": 465, "unit": "mm", "status": "low",
+      "text": { "en": "363 mm of rain in 2024, 22% less than normal.", "ar": "363 ملم من المطر في 2024، أقل من المعتاد بـ 22%." } },
+    { "id": "heat", "value": 53, "unit": "days", "status": "high",
+      "text": { "en": "53 days above 35 °C, mostly June to August.", "ar": "53 يوماً فوق 35 درجة، أغلبها من يونيو إلى غشت." } },
+    { "id": "moisture", "value": 16, "unit": "%", "status": "medium",
+      "text": { "en": "Soil at root depth dropped to 16% water in August.", "ar": "انخفض ماء التربة في عمق الجذور إلى 16% في غشت." } }
+  ],
+  "actions": [
+    { "id": "manure", "when": { "en": "September – October", "ar": "شتنبر – أكتوبر" },
+      "title": { "en": "Add manure before ploughing", "ar": "أضف السماد البلدي قبل الحرث" },
+      "detail": { "en": "Spread 20 to 30 tonnes of well-rotted manure per hectare. It raises organic matter and helps the soil keep water.", "ar": "انشر 20 إلى 30 طناً من السماد البلدي المتحلل في الهكتار. يرفع المادة العضوية ويساعد التربة على الاحتفاظ بالماء." } },
+    { "id": "faba", "when": { "en": "November", "ar": "نونبر" },
+      "title": { "en": "Sow faba beans instead of a second wheat year", "ar": "ازرع الفول بدل سنة قمح ثانية" },
+      "detail": { "en": "Faba beans add about 120 kg of nitrogen per hectare for the next wheat crop. This is Option A in the rotations tab.", "ar": "يضيف الفول حوالي 120 كلغ من الآزوت في الهكتار لمحصول القمح التالي. هذا هو الخيار أ في صفحة الدورة الزراعية." } },
+    { "id": "phosphorus", "when": { "en": "At sowing", "ar": "عند الزرع" },
+      "title": { "en": "Add phosphorus at sowing", "ar": "أضف الفوسفور عند الزرع" },
+      "detail": { "en": "About 60 kg of P₂O₅ per hectare, placed near the seed.", "ar": "حوالي 60 كلغ من P₂O₅ في الهكتار، قرب البذور." } },
+    { "id": "split-n", "when": { "en": "November and January – February", "ar": "نونبر ويناير – فبراير" },
+      "title": { "en": "Split nitrogen for wheat", "ar": "قسّم السماد الآزوتي للقمح" },
+      "detail": { "en": "Give one third at sowing and two thirds at tillering. If spring is dry, do not add more after March.", "ar": "ضع الثلث عند الزرع والثلثين عند الإشطاء. إذا كان الربيع جافاً، لا تضف المزيد بعد مارس." } },
+    { "id": "water", "when": { "en": "March – May", "ar": "مارس – ماي" },
+      "title": { "en": "Plan irrigation for spring", "ar": "خطط للسقي في الربيع" },
+      "detail": { "en": "Rain fell short when wheat needs it most. Keep your water turns for March to May.", "ar": "نقص المطر في الوقت الذي يحتاجه القمح أكثر. احتفظ بنوبات السقي لشهور مارس إلى ماي." } }
+  ],
+  "crops": [
+    { "crop": "faba-bean", "fit": "best",
+      "reason": { "en": "Fixes nitrogen, which your soil lacks. Grows in winter, when rain falls.", "ar": "يثبت الآزوت الذي تفتقر إليه تربتك. ينمو في الشتاء وقت نزول المطر." } },
+    { "crop": "durum-wheat", "fit": "good",
+      "reason": { "en": "Very well suited with irrigation (88/100). Grow it after faba beans for less fertilizer.", "ar": "ملائم جداً مع السقي (88/100). ازرعه بعد الفول لتحتاج سماداً أقل." } },
+    { "crop": "olive", "fit": "good",
+      "reason": { "en": "Handles chalky, alkaline soil and dry summers well.", "ar": "يتحمل التربة الكلسية القلوية والصيف الجاف جيداً." } }
+  ],
+  "avoid": [
+    { "crop": "maize",
+      "reason": { "en": "Needs about 650 mm of water in summer, the driest season here.", "ar": "يحتاج حوالي 650 ملم من الماء في الصيف، أجف فصل هنا." } }
+  ],
+  "rotation": { "pick": "a", "reason": { "en": "Option A: wheat, faba bean, sugar beet.", "ar": "الخيار أ: قمح، فول، شمندر سكري." } },
+  "confidence": {
+    "level": "medium",
+    "notes": [
+      { "en": "Soil values come from your plot: one composite sample, 0–30 cm.", "ar": "قيم التربة من قطعتك: عينة مركبة واحدة، من 0 إلى 30 سم." },
+      { "en": "Weather and soil moisture describe a 9 to 50 km square around you, not your exact plot.", "ar": "الطقس ورطوبة التربة تصف مربعاً من 9 إلى 50 كلم حولك، وليس قطعتك بالضبط." },
+      { "en": "This is a simulated AI result made for the demo.", "ar": "هذه نتيجة ذكاء اصطناعي محاكاة للعرض." }
+    ]
+  }
+}
