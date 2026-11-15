@@ -5,7 +5,7 @@ import LocateButton from './LocateButton';
 import { LAYERS, layerCells, legendBands } from '../lib/layers';
 import { PLACES, placeName, placeRegion, typeLabelKey } from '../lib/places';
 import { sortByDistance, km } from '../lib/geo';
-import { cropInfo, layerValuesByRegion } from '../lib/api';
+import { cropInfo } from '../lib/api';
 import { useLang } from '../i18n';
 
 export default function MapPage({
@@ -13,7 +13,7 @@ export default function MapPage({
   refPoint,
   refIsManual,
   suppliers,
-  _metrics,
+  metrics,
   onRefChange,
   onSelectPlace,
   onLocated,
@@ -25,10 +25,9 @@ export default function MapPage({
   const [suppliersOn, setSuppliersOn] = useState(initialSuppliersOpen);
 
   const layer = LAYERS.find((l) => l.id === layerId) ?? LAYERS[0];
-  const regionValues = useMemo(() => layerValuesByRegion(), []);
   const cells = useMemo(
-    () => layerCells(layer, PLACES, regionValues, place.id),
-    [layer, regionValues, place.id],
+    () => layerCells(layer, place, metrics),
+    [layer, place, metrics],
   );
   const selectedCell = cells.find((cell) => cell.selected) ?? cells[0];
   const bands = legendBands(layer, t[layer.unit]);

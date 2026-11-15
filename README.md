@@ -1,16 +1,20 @@
 # AtlasAgri
 
-**A climate-smart farming demo for Morocco.** AtlasAgri helps farmers explore local climate and soil context, compare crop options, and understand practical land-management considerations through an interactive map and a multilingual dashboard.
+**NASA-data-informed farming insights for Morocco.** AtlasAgri brings together climate and earth-observation data themes from NASA POWER (temperature), GPM IMERG (rainfall), and SMAP (soil moisture) in an interactive map and multilingual farm-planning demo. Farmers can explore local conditions, compare crop options, and review practical land-management considerations.
 
-> **Demo notice:** AtlasAgri currently uses a mock API layer and local demonstration datasets. Climate and soil values are simulated or curated for the prototype; they are not live NASA measurements and must not be used to make real farming decisions. The GreenArt backend is a separate project and is not connected to this demo.
+> **Demo notice:** AtlasAgri currently uses a mock API layer and local demonstration datasets. Climate and soil values are simulated or curated for the prototype; they are not live NASA measurements and must not be used to make real farming decisions. A separate GreenArt backend is in progress, but it is not connected to this demo yet.
 
 [![React](https://img.shields.io/badge/React-19.3.1-149eca?logo=react&logoColor=white)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8.3.6-646cff?logo=vite&logoColor=white)](https://vite.dev/)
 [![Leaflet](https://img.shields.io/badge/Leaflet-1.9.4-199900?logo=leaflet&logoColor=white)](https://leafletjs.com/)
 
+## High-level summary
+
+AtlasAgri is a prototype for making climate, rainfall, soil, and crop-planning context easier to explore for Moroccan farming areas. Its map and multilingual dashboard bring these topics together in a farmer-oriented workflow. The current submission demonstrates the experience using simulated, NASA-inspired datasets; connecting the separate GreenArt backend and validating the data and agricultural guidance are future work.
+
 ## What you can explore
 
-- An interactive map with rainfall, temperature, soil-moisture, and crop-suitability layers.
+- An interactive map centered on NASA POWER temperature, GPM IMERG rainfall, and SMAP soil-moisture data, alongside crop-suitability context.
 - Agricultural study areas across five Moroccan regions, with map-based location selection.
 - A weather view, crop suitability cards, and side-by-side crop-rotation comparisons.
 - A plain-language farm analysis built locally from the selected area's demo records.
@@ -18,6 +22,20 @@
 - Demonstration supplier listings and an optional sample soil-report flow.
 
 The project is designed as a reviewable prototype: it demonstrates the user experience and analysis flow without presenting mock values as verified measurements.
+
+## The problem and the project
+
+### What I built
+
+I built AtlasAgri, a multilingual, map-based farming decision-support prototype for Moroccan agricultural study areas. It brings climate, rainfall, soil-moisture, crop-suitability, and rotation context into one experience, then presents that context through weather views and a plain-language farm analysis. The current demo runs on local simulated datasets and browser-side analysis.
+
+### What challenge it addresses
+
+Climate and earth-observation datasets can be difficult to explore as raw technical records. AtlasAgri demonstrates one way to make those kinds of signals more approachable: organize them by place, show related conditions together, and connect them to crop and rotation comparisons in a farmer-facing interface. The demo is a prototype of that workflow, not evidence that it has already improved farm decisions or outcomes.
+
+### Why it matters
+
+Water availability, changing climate conditions, and soil health affect agricultural planning. Making relevant information easier to explore can help people ask better questions about local conditions and possible crop choices. AtlasAgri is intended to explore that opportunity for Morocco, while its simulated data and unvalidated assumptions mean it must not be used as real-world agronomic advice.
 
 ## Demo data and limitations
 
@@ -66,7 +84,7 @@ flowchart LR
   MOCK -. "not connected yet" .-> API
 ```
 
-The separate [GreenArt backend](https://github.com/Ayoub717542/GreenArt) provides endpoints for NASA POWER, GPM IMERG rainfall, and SMAP soil moisture. It currently returns service-specific/raw response shapes, while this frontend expects monthly records in its own schema. Connecting them will require a frontend API adapter, data aggregation/normalization, and local CORS/proxy configuration. Crop suitability, rotations, soil assumptions, and supplier listings also remain local demo data.
+The [GreenArt backend](https://github.com/Ayoub717542/GreenArt) is a separate work in progress intended to connect NASA POWER, GPM IMERG, and SMAP data, but it is not connected to this frontend yet. Integration is still pending: the frontend needs an API adapter and data aggregation/normalization, plus local CORS/proxy configuration. Until then, the frontend uses simulated records modeled on those datasets. Crop suitability, rotations, soil assumptions, and supplier listings also remain local demo data.
 
 ## Run locally
 
