@@ -11,7 +11,9 @@
     "smoke": "node scripts/smoke.mjs",
     "check:keys": "node scripts/check-keys.mjs",
     "check:analysis": "node scripts/check-analysis.mjs",
-    "check:rotations": "node scripts/check-rotations.mjs"
+    "check:rotations": "node scripts/check-rotations.mjs",
+    "check:map": "node scripts/check-map.mjs",
+    "check:forecast": "node scripts/check-forecast.mjs"
   },
   "dependencies": {
     "@fontsource/atkinson-hyperlegible": "^5.3.0",

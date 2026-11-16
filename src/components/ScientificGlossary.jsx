@@ -16,35 +16,37 @@ export default function ScientificGlossary({ defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <section className="panel glossary-panel">
-      <div className="glossary-header" onClick={() => setOpen((prev) => !prev)} role="button" tabIndex={0} onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setOpen((prev) => !prev)}>
-        <div className="glossary-title-group">
+    <details
+      className="panel glossary-panel"
+      open={open}
+      onToggle={(event) => setOpen(event.currentTarget.open)}
+    >
+      <summary className="glossary-header">
+        <span className="glossary-title-group">
           <span className="glossary-icon-badge"><Icon name="globe" size={20} /></span>
-          <div>
-            <h3 className="glossary-title">{t.glossaryTitle}</h3>
-            <p className="glossary-sub">{t.glossarySub}</p>
-          </div>
-        </div>
-        <button type="button" className="btn btn-ghost btn-small glossary-toggle-btn" aria-expanded={open}>
-          <span>{open ? t.close : t.openMenu}</span>
+          <span>
+            <span className="glossary-title" role="heading" aria-level="3">{t.glossaryTitle}</span>
+            <span className="glossary-sub">{t.glossarySub}</span>
+          </span>
+        </span>
+        <span className="glossary-toggle-btn">
+          <span>{open ? t.hideGuide : t.showGuide}</span>
           <Icon name={open ? 'chevronDown' : 'chevronRight'} size={16} />
-        </button>
-      </div>
+        </span>
+      </summary>
 
-      {open && (
-        <div className="glossary-grid">
-          {GLOSSARY_TOPICS.map((item) => (
-            <article key={item.id} className="glossary-card">
-              <div className="glossary-card-top">
-                <span className="glossary-card-icon"><Icon name={item.icon} size={18} /></span>
-                <span className="tag tag-soft">{item.tagKey ? t[item.tagKey] : item.tag}</span>
-              </div>
-              <h4>{t[item.titleKey]}</h4>
-              <p>{t[item.textKey]}</p>
-            </article>
-          ))}
-        </div>
-      )}
-    </section>
+      <div className="glossary-grid">
+        {GLOSSARY_TOPICS.map((item) => (
+          <article key={item.id} className="glossary-card">
+            <div className="glossary-card-top">
+              <span className="glossary-card-icon"><Icon name={item.icon} size={18} /></span>
+              <span className="tag tag-soft">{item.tagKey ? t[item.tagKey] : item.tag}</span>
+            </div>
+            <h4>{t[item.titleKey]}</h4>
+            <p>{t[item.textKey]}</p>
+          </article>
+        ))}
+      </div>
+    </details>
   );
 }

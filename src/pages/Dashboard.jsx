@@ -10,13 +10,13 @@ import SuppliersTab from '../components/SuppliersTab';
 import Chatbot from '../components/Chatbot';
 import rotations from '../data/rotations.json';
 import {
-  loadClimate, loadRainfall, loadSoil, loadCrops, suppliersFor,
+  loadClimate, loadRainfall, loadSoil, loadCrops, loadForecast, suppliersFor,
 } from '../lib/api';
 import { useLoad } from '../lib/useLoad';
 import { findPlace, nearestPlace, placeName } from '../lib/places';
 import { soilValuesFor } from '../lib/analysis';
 import { sampleLab } from '../lib/lab';
-import { CURRENT_YEAR, sum, mean, maxBy, monthIndex } from '../lib/format';
+import { CURRENT_YEAR, sum, maxBy, monthIndex } from '../lib/format';
 import { useLang } from '../i18n';
 
 const parseRef = (value) => {
@@ -44,22 +44,9 @@ export default function Dashboard({ tab, locId, refParam, sup, navigate }) {
   const [rain, retryRain] = useLoad(loadRainfall, place.dataKey);
   const [soil] = useLoad(loadSoil, place.dataKey);
   const [crops] = useLoad(loadCrops, place.dataKey);
+  const [forecast, retryForecast] = useLoad(loadForecast, place.dataKey);
 
   const suppliers = useMemo(() => suppliersFor(place, 100), [place]);
-
-  const metrics = useMemo(() => {
-    const climateMonths = climate.status === 'ok' ? climate.data.months : null;
-    const rainMonths = rain.status === 'ok' ? rain.data.months : null;
-    const soilMonths = soil.status === 'ok' ? soil.data.months.filter((m) => typeof m.rootzone === 'number') : null;
-    const cropRows = crops.status === 'ok' ? crops.data.crops : null;
-    const wheat = cropRows?.find((c) => c.crop === 'durum-wheat');
-    return {
-      rain: rainMonths ? Math.round(sum(rainMonths, 'precip')) : 0,
-      temp: climateMonths ? Math.round(mean(climateMonths, 't2mMax')) : 24,
-      soil: soilMonths?.length ? Math.round(Math.min(...soilMonths.map((m) => m.rootzone)) * 100) : 14,
-      crop: wheat?.irrigated?.index ?? 60,
-    };
-  }, [climate, rain, soil, crops]);
 
   const hrefFor = (tabId, extra = '') => {
     const ref = manualRef ? `&ref=${refString(refPoint)}` : '';
@@ -151,7 +138,6 @@ export default function Dashboard({ tab, locId, refParam, sup, navigate }) {
             refPoint={refPoint}
             refIsManual={manualRef}
             suppliers={suppliers}
-            metrics={metrics}
             onRefChange={moveRef}
             onSelectPlace={selectPlace}
             onLocated={goLocated}
@@ -174,7 +160,9 @@ export default function Dashboard({ tab, locId, refParam, sup, navigate }) {
             climate={climate}
             rain={rain}
             soil={soil}
+            forecast={forecast}
             retryRain={retryRain}
+            retryForecast={retryForecast}
           />
         )}
         {current === 'crops' && (

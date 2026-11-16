@@ -75,6 +75,8 @@ function Timeline({ years, compact = false }) {
                 <span
                   className="timeline-bare-zone"
                   style={{ left: `${(10 / 12) * 100}%`, width: `${(2 / 12) * 100}%` }}
+                  role="img"
+                  aria-label={`${t.bareSoilDanger}: ${t.bareSoilDesc}`}
                   title={`${t.bareSoilDanger}: ${t.bareSoilDesc}`}
                 />
               )}
@@ -92,6 +94,8 @@ function Timeline({ years, compact = false }) {
                       width: `${width}%`,
                       background: FAMILY_COLOR[crop.family] ?? '#1E2B22',
                     }}
+                    role="img"
+                    aria-label={`${cropLabel(crop, lang)}: ${t.sownWord} ${t.yearMonths[start]}, ${t.harvestedWord} ${t.yearMonths[end]}`}
                     title={`${cropLabel(crop, lang)}: ${t.sownWord} ${t.yearMonths[start]}, ${t.harvestedWord} ${t.yearMonths[end]}`}
                     dir="auto"
                   >
@@ -108,22 +112,43 @@ function Timeline({ years, compact = false }) {
 }
 
 function CropFaces({ years }) {
+  const { t, lang } = useLang();
   const ids = [...new Set(years.flat().map((p) => p.crop))];
   return (
     <span className="faces" aria-hidden="true">
-      {ids.map((id) => <img key={id} src={cropPhoto(id)} alt="" width="34" height="34" loading="lazy" />)}
+      {ids.map((id) => {
+        const crop = cropInfo(id);
+        const name = lang === 'ar' ? crop?.nameAr : lang === 'fr' ? crop?.nameFr ?? crop?.name : crop?.name;
+        return <img key={id} src={cropPhoto(id)} alt={name ?? ''} width="34" height="34" loading="lazy" />;
+      })}
     </span>
   );
 }
 
+
 function Dots({ value }) {
   const { t } = useLang();
   return (
-    <span className="dots" aria-label={t.outOf5(value)}>
+    <span className="dots" role="img" aria-label={t.outOf5(value)}>
       {[1, 2, 3, 4, 5].map((i) => <span key={i} className={i <= value ? 'on' : ''} />)}
     </span>
   );
 }
+
+const bareSummer = (years) => years.some((year) => {
+  const covered = new Set();
+  for (const period of year) {
+    const start = pos(period.start);
+    const end = pos(period.end);
+    if (start <= end) {
+      for (let m = start; m <= end; m++) covered.add(m);
+    } else {
+      for (let m = start; m < 12; m++) covered.add(m);
+      for (let m = 0; m <= end; m++) covered.add(m);
+    }
+  }
+  return !covered.has(10) && !covered.has(11);
+});
 
 function ScenarioCard({ scenario, maxWater, maxN, isRec, t, pick }) {
   const erosionKey = `erosion${scenario.erosionRisk}`;
@@ -171,9 +196,11 @@ function ScenarioCard({ scenario, maxWater, maxN, isRec, t, pick }) {
       <div className="rot-timeline">
         <div className="rot-timeline-head">
           <p className="rot-subhead">{t.metricSeason}</p>
-          <span className="tag tag-warn small" title={t.bareSoilDesc}>
-            <Icon name="alert" size={13} /> {t.bareSoilDanger}
-          </span>
+          {bareSummer(scenario.years) && (
+            <span className="tag tag-warn small" title={t.bareSoilDesc}>
+              <Icon name="alert" size={13} /> {t.bareSoilDanger}
+            </span>
+          )}
         </div>
         <Timeline years={scenario.years} />
       </div>
@@ -208,13 +235,12 @@ function RotationComparisonMatrix({ scenarios, recId, t, pick }) {
     <section className="panel matrix-panel">
       <header className="panel-head">
         <div>
-          <span className="eyebrow"><Icon name="layers" size={16} /> {t.matrixTitle}</span>
-          <h3>{t.matrixTitle}</h3>
+          <h3><Icon name="layers" size={18} /> {t.matrixTitle}</h3>
           <p className="muted small">{t.matrixSub}</p>
         </div>
       </header>
       <div className="matrix-table-wrap">
-        <table className="matrix-table">
+        <table className="matrix-table" aria-label={t.matrixTitle}>
           <thead>
             <tr>
               <th>{t.colRotation}</th>
@@ -321,13 +347,12 @@ export default function RotationsTab({ place }) {
           <span className="eyebrow"><Icon name="target" size={16} /> {t.priorityLabel}</span>
           <p className="priority-sub">{t[activePriorityObj.explainKey]}</p>
         </div>
-        <div className="priority-bar" role="tablist" aria-label={t.priorityLabel}>
+        <div className="priority-bar" role="group" aria-label={t.priorityLabel}>
           {PRIORITIES.map((p) => (
             <button
               key={p.id}
               type="button"
-              role="tab"
-              aria-selected={priority === p.id}
+              aria-pressed={priority === p.id}
               className={`priority-chip ${priority === p.id ? 'is-active' : ''}`}
               onClick={() => setPriority(p.id)}
             >

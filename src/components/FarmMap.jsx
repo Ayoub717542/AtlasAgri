@@ -52,9 +52,17 @@ export default function FarmMap({
 
       {cells.map((cell) => (
         <Rectangle
-          key={`${cell.row}-${cell.col}`}
+          key={cell.key}
           bounds={cell.bounds}
-          pathOptions={{ stroke: false, fillColor: cell.color, fillOpacity: 0.68 }}
+          pathOptions={{
+            className: cell.selected ? 'map-grid-cell is-selected' : 'map-grid-cell',
+            stroke: true,
+            color: '#1E2B22',
+            weight: cell.selected ? 2 : 1,
+            opacity: cell.selected ? 0.8 : 0.45,
+            fillColor: cell.color,
+            fillOpacity: cell.selected ? 0.62 : 0.38,
+          }}
           interactive={false}
         />
       ))}

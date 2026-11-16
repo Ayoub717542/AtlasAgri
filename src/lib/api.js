@@ -7,8 +7,9 @@ import gaez from '../data/gaez.json';
 import rotations from '../data/rotations.json';
 import cropDetails from '../data/crop-details.json';
 import supplierData from '../data/suppliers.json';
-import { withCurrentYear, CURRENT_YEAR } from './format';
+import { withCurrentYear, CURRENT_YEAR, sum, mean } from './format';
 import { haversine } from './geo';
+import { buildForecast } from './forecast';
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const meta = ({ locations: _l, crops: _c, ...rest }) => rest;
@@ -38,6 +39,19 @@ export async function loadSoil(dataKey) {
   return { meta: meta(smap), months: withCurrentYear(smap.locations[dataKey]) };
 }
 
+// Simulated 14-day outlook built from the same monthly demonstration records.
+// It is not a forecast API; see src/lib/forecast.js for how each day is made.
+export async function loadForecast(dataKey) {
+  await wait(700);
+  return buildForecast({
+    dataKey,
+    climateMonths: withCurrentYear(power.locations[dataKey]),
+    rainMonths: withCurrentYear(gpm.locations[dataKey]),
+    soilMonths: withCurrentYear(smap.locations[dataKey]),
+    startDate: new Date(),
+  });
+}
+
 export async function loadCrops(dataKey) {
   await wait(800);
   return {
@@ -58,6 +72,27 @@ export async function loadCrops(dataKey) {
       };
     }),
   };
+}
+
+// The map needs one native dataset value per demonstration region. These are
+// the same simulated records the rest of the app loads, read synchronously so
+// every map layer can draw its own grid without waiting for a request.
+export function layerValuesByRegion() {
+  return Object.fromEntries(Object.keys(gpm.locations).map((key) => {
+    const rainMonths = gpm.locations[key] ?? [];
+    const climateMonths = power.locations[key] ?? [];
+    const soilMonths = (smap.locations[key] ?? []).filter((m) => typeof m.rootzone === 'number');
+    const cropRows = gaez.locations[key] ?? [];
+    const wheat = cropRows.find((row) => row.crop === 'durum-wheat');
+    return [key, {
+      rain: Math.round(sum(rainMonths, 'precip')),
+      temp: Math.round(mean(climateMonths, 't2mMax')),
+      soil: soilMonths.length
+        ? Math.round(Math.min(...soilMonths.map((m) => m.rootzone)) * 100)
+        : 0,
+      crop: wheat?.irrigated?.index ?? 60,
+    }];
+  }));
 }
 
 export async function compareRotations(profileId) {

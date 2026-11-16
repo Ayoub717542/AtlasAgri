@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Logo from './Logo';
 import Icon from './Icons';
 import LangToggle from './LangToggle';
@@ -5,6 +6,18 @@ import { useLang } from '../i18n';
 import { groupByRegion, placeName, placeRegion, typeLabelKey } from '../lib/places';
 import { CURRENT_YEAR } from '../lib/format';
 import { TABS, GROUPS } from '../lib/tabs';
+
+function PlaceOptions({ groups, lang }) {
+  return groups.map((group) => (
+    <optgroup key={group.base.id} label={placeRegion({ ...group.places[0] }, lang)}>
+      {group.places.map((item) => (
+        <option key={item.id} value={item.id}>
+          {placeName(item, lang)}
+        </option>
+      ))}
+    </optgroup>
+  ));
+}
 
 export default function Shell({
   tab = 'map',
@@ -18,6 +31,10 @@ export default function Shell({
   const active = TABS.find((item) => item.id === tab) ?? TABS[0];
   const current = TABS.find((item) => item.id === tab);
   const groups = groupByRegion();
+
+  useEffect(() => {
+    document.title = `${t[active.title]} · AtlasAgri`;
+  }, [t, active]);
 
   return (
     <div className="shell">
@@ -38,15 +55,7 @@ export default function Shell({
               value={place.id}
               onChange={(event) => onSelectPlace(event.target.value)}
             >
-              {groups.map((group) => (
-                <optgroup key={group.base.id} label={placeRegion({ ...group.places[0] }, lang)}>
-                  {group.places.map((item) => (
-                    <option key={item.id} value={item.id}>
-                      {placeName(item, lang)}
-                    </option>
-                  ))}
-                </optgroup>
-              ))}
+              <PlaceOptions groups={groups} lang={lang} />
             </select>
             <Icon name="chevronDown" size={16} className="select-chevron" />
           </div>
@@ -118,6 +127,26 @@ export default function Shell({
           </div>
         </header>
 
+        <div className="mobile-place">
+          <label htmlFor="mobile-place-select">
+            <Icon name="pin" size={16} />
+            <span>{t.farmLocation}</span>
+          </label>
+          <div className="select-wrap">
+            <select
+              id="mobile-place-select"
+              value={place.id}
+              onChange={(event) => onSelectPlace(event.target.value)}
+            >
+              <PlaceOptions groups={groups} lang={lang} />
+            </select>
+            <Icon name="chevronDown" size={16} className="select-chevron" />
+          </div>
+          <p className="mobile-place-meta">
+            {placeRegion(place, lang)} · {t[typeLabelKey(place)]}
+          </p>
+        </div>
+
         <nav className="mobile-nav" aria-label={t.tagline}>
           {TABS.map((item) => (
             <a
@@ -132,7 +161,7 @@ export default function Shell({
           ))}
         </nav>
 
-        <main id="main-content" className="page-main">
+        <main id="main-content" className="page-main" tabIndex={-1}>
           {children}
         </main>
 

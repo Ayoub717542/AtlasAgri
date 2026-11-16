@@ -65,10 +65,10 @@ const STEPS = [
 ];
 
 const SOURCES = [
-  { q: 'sourcesQ1', a: 'sourcesA1', size: 'sizeTemp', icon: 'sun' },
-  { q: 'sourcesQ2', a: 'sourcesA2', size: 'sizeRain', icon: 'drop' },
-  { q: 'sourcesQ3', a: 'sourcesA3', size: 'sizeSoil', icon: 'soil' },
-  { q: 'sourcesQ4', a: 'sourcesA4', size: 'sizeCrop', icon: 'leaf' },
+  { q: 'sourcesQ1', a: 'sourcesA1', icon: 'sun' },
+  { q: 'sourcesQ2', a: 'sourcesA2', icon: 'drop' },
+  { q: 'sourcesQ3', a: 'sourcesA3', icon: 'soil' },
+  { q: 'sourcesQ4', a: 'sourcesA4', icon: 'leaf' },
 ];
 
 function PhotoCredits() {
@@ -119,7 +119,10 @@ export default function Landing() {
               <li><Icon name="check" size={15} /> {t.heroProof3}</li>
             </ul>
           </div>
-          <SeasonStrip />
+          <div className="hero-visual">
+            <img className="hero-photo" src="/crops/durum-wheat.jpg" alt="" />
+            <SeasonStrip />
+          </div>
         </section>
 
         <section className="land-section">
@@ -150,13 +153,10 @@ export default function Landing() {
                 <span className="source-icon"><Icon name={source.icon} size={20} /></span>
                 <h3>{t[source.q]}</h3>
                 <p>{t[source.a]}</p>
-                <p className="source-size">
-                  <Icon name="ruler" size={14} />
-                  {t.sourceSize} {t[source.size]}
-                </p>
               </article>
             ))}
           </div>
+          <p className="sources-scale-note"><Icon name="info" size={16} /> {t.sourcesScaleNote}</p>
           <p className="page-note"><Icon name="info" size={16} /> {t.landFooter}</p>
         </section>
 

@@ -31,11 +31,12 @@ const { default: SuppliersTab } = await load('/src/components/SuppliersTab.jsx')
 const { default: ConditionsTab } = await load('/src/components/ConditionsTab.jsx');
 const { default: Chatbot } = await load('/src/components/Chatbot.jsx');
 const { findPlace } = await load('/src/lib/places.js');
-const { loadCrops, suppliersFor } = await load('/src/lib/api.js');
+const { loadCrops, loadForecast, suppliersFor } = await load('/src/lib/api.js');
 
 const place = findPlace('beni-mellal');
 const crops = await loadCrops(place.dataKey);
 const suppliers = suppliersFor(place, 120);
+const forecast = { status: 'ok', data: await loadForecast(place.dataKey) };
 const loading = { status: 'loading' };
 const noop = () => {};
 const hrefFor = () => '#/dashboard/map';
@@ -51,8 +52,10 @@ const cases = [
     place, data: { climate: loading, rain: loading, soil: loading, crops: loading },
     retries: { rain: noop }, hrefFor, lab: null, setLab: noop,
   }), ['Comprendre', 'Analyse de sol du laboratoire']],
-  ['Weather (en)', 'en', h(ConditionsTab, { climate: loading, rain: loading, soil: loading, retryRain: noop }),
-    ['How hot it gets, month by month', 'Three things that matter this year']],
+  ['Weather (en)', 'en', h(ConditionsTab, { climate: loading, rain: loading, soil: loading, forecast, retryRain: noop, retryForecast: noop }),
+    ['Today, this week and next week', 'How these levels are set', 'How hot it gets, month by month', 'Three things that matter this year']],
+  ['Weather (ar)', 'ar', h(ConditionsTab, { climate: loading, rain: loading, soil: loading, forecast, retryRain: noop, retryForecast: noop }),
+    ['اليوم، هذا الأسبوع والأسبوع القادم', 'كيف تُحدَّد هذه المستويات']],
   ['Crops (en)', 'en', h(CropsTab, { state: { status: 'ok', data: crops }, place: 'Béni Mellal', rainTotal: 280 }),
     ['Crops that suit this land', 'Durum wheat']],
   ['Rotations (en)', 'en', h(RotationsTab, { place }), ['See your options side by side', 'Compare the three rotations']],

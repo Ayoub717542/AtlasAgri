@@ -45,7 +45,7 @@ function CropCard({ crop, regime, rank, rainTotal, open, onToggle }) {
       <div className="crop-media">
         <img src={cropPhoto(crop.id)} alt="" loading="lazy" width="360" height="220" />
         <span className={`fit-pill fit-${fit}`}>{fitLabel(fit, t)}</span>
-        <span className="crop-index" aria-label={t.suitabilityOf(row.index)}>
+        <span className="crop-index" role="img" aria-label={t.suitabilityOf(row.index)}>
           <strong>{row.index}</strong><span>/100</span>
         </span>
       </div>
@@ -133,7 +133,7 @@ export default function CropsTab({ state, place, rainTotal }) {
   return (
     <div className="crops-page">
       <section className="crops-toolbar">
-        <div className="segmented" role="group" aria-label={t.waterNeedLabel}>
+        <div className="segmented" role="group" aria-label={t.waterMode}>
           <button type="button" aria-pressed={water === 'rainfed'} onClick={() => setWater('rainfed')}>
             <Icon name="drop" size={16} /> {t.rainOnly}
           </button>

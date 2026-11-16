@@ -199,14 +199,18 @@ function Progress({ step }) {
 }
 
 function ScoreBlock({ result, t }) {
+  const score = result.overall.score;
+  const band = score >= 75 ? 'good' : score >= 55 ? 'medium' : 'low';
+  const bandLabel = band === 'good' ? t.scoreBandGood : band === 'medium' ? t.scoreBandMedium : t.scoreBandLow;
   return (
     <div className="score-block">
       <span className="eyebrow">{t.scoreTitle}</span>
       <p className="score-number">
-        <strong>{result.overall.score}</strong><span>/ 100</span>
+        <strong>{score}</strong><span>/ 100</span>
       </p>
+      <span className={`score-band score-band-${band}`}>{bandLabel}</span>
       <div className="score-scale" aria-hidden="true">
-        <span style={{ insetInlineStart: `${result.overall.score}%` }} />
+        <span style={{ insetInlineStart: `${score}%` }} />
       </div>
       <p className="score-note">{t.scoreNote}</p>
       <p className={`confidence conf-${result.confidence.level}`}>
@@ -260,8 +264,7 @@ function NasaDriversCard({ result, t }) {
     <section className="panel nasa-drivers-panel">
       <header className="panel-head">
         <div>
-          <span className="eyebrow"><Icon name="globe" size={16} /> {t.nasaDriversTitle}</span>
-          <h3>{t.nasaDriversTitle}</h3>
+          <h3><Icon name="globe" size={18} /> {t.nasaDriversTitle}</h3>
           <p className="muted small">{t.nasaDriversSub}</p>
         </div>
       </header>
@@ -323,8 +326,7 @@ function WaterEconomicLedger({ result, t }) {
     <section className="panel ledger-panel">
       <header className="panel-head">
         <div>
-          <span className="eyebrow"><Icon name="sprout" size={16} /> {t.ledgerTitle}</span>
-          <h3>{t.ledgerTitle}</h3>
+          <h3><Icon name="sprout" size={18} /> {t.ledgerTitle}</h3>
           <p className="muted small">{t.ledgerSub}</p>
         </div>
       </header>
@@ -498,14 +500,13 @@ export default function FarmTab({ place, data, retries, hrefFor, lab, setLab }) 
     <div className="farm-page">
       <section className="analysis-cta">
         <div className="cta-copy">
-          <span className="eyebrow"><Icon name="sparkle" size={16} /> {t.analysisTitle}</span>
+          <span className="eyebrow"><Icon name="sparkle" size={16} /> {t.analysisEyebrow}</span>
           <h2>{t.analysisTitle}</h2>
           <p className="cta-lead">{t.analysisSubtitle}</p>
           <ul className="cta-points">
-            <li><Icon name="file" size={16} /> {t.labExplain}</li>
-            <li><Icon name="drop" size={16} /> {t.layerRainSub}</li>
-            <li><Icon name="soil" size={16} /> {t.layerSoilSub}</li>
-            <li><Icon name="leaf" size={16} /> {t.cropsTitle}</li>
+            <li><Icon name="file" size={16} /> {t.ctaPoint1}</li>
+            <li><Icon name="drop" size={16} /> {t.ctaPoint2}</li>
+            <li><Icon name="leaf" size={16} /> {t.ctaPoint3}</li>
           </ul>
         </div>
         <div className="cta-action">
@@ -553,14 +554,11 @@ export default function FarmTab({ place, data, retries, hrefFor, lab, setLab }) 
             </div>
           </div>
 
-          <NasaDriversCard result={result} t={t} />
-          <WaterEconomicLedger result={result} t={t} />
-
           <FourQuestions result={result} t={t} />
 
           <div className="result-grid">
-            <ResultCrops result={result} t={t} hrefFor={hrefFor} />
             <ActionList actions={result.actions} t={t} />
+            <ResultCrops result={result} t={t} hrefFor={hrefFor} />
           </div>
 
           <section className="panel rotation-suggest">
@@ -574,41 +572,56 @@ export default function FarmTab({ place, data, retries, hrefFor, lab, setLab }) 
             </a>
           </section>
 
-          <section className="panel sources-panel" aria-labelledby="sources-title">
-            <header className="panel-head">
-              <h2 id="sources-title">{t.dataUsedTitle}</h2>
-              <span className="tag tag-warn">{t.simulatedData}</span>
-            </header>
-            <p className="muted">{t.dataUsedSub}</p>
-            <ul className="input-list">
-              {result.inputs.map((input) => (
-                <li key={input.id}>
-                  <Icon name={input.kind === 'lab' ? 'file' : input.kind === 'model' ? 'leaf' : 'drop'} size={18} />
-                  <div>
-                    <strong>{input.source}</strong>
-                    <span>{input.covers}</span>
-                  </div>
-                  <span className="tag tag-soft">{t.simulated}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="confidence-notes">
-              <p className="eyebrow">{t.confidenceLabel}: {result.confidence.label}</p>
-              <ul>{result.confidence.notes.map((note) => <li key={note}>{note}</li>)}</ul>
+          <details className="tech-details">
+            <summary className="tech-details-summary">
+              <Icon name="layers" size={20} />
+              <span>
+                <strong>{t.techDetailsTitle}</strong>
+                <small>{t.techDetailsSub}</small>
+              </span>
+              <Icon name="chevronDown" size={18} className="tech-chevron" />
+            </summary>
+            <div className="tech-details-body">
+              <NasaDriversCard result={result} t={t} />
+              <WaterEconomicLedger result={result} t={t} />
+
+              <section className="panel sources-panel" aria-labelledby="sources-title">
+                <header className="panel-head">
+                  <h2 id="sources-title">{t.dataUsedTitle}</h2>
+                  <span className="tag tag-warn">{t.simulatedData}</span>
+                </header>
+                <p className="muted">{t.dataUsedSub}</p>
+                <ul className="input-list">
+                  {result.inputs.map((input) => (
+                    <li key={input.id}>
+                      <Icon name={input.kind === 'lab' ? 'file' : input.kind === 'model' ? 'leaf' : 'drop'} size={18} />
+                      <div>
+                        <strong>{input.source}</strong>
+                        <span>{input.covers}</span>
+                      </div>
+                      <span className="tag tag-soft">{t.simulated}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="confidence-notes">
+                  <p className="eyebrow">{t.confidenceLabel}: {result.confidence.label}</p>
+                  <ul>{result.confidence.notes.map((note) => <li key={note}>{note}</li>)}</ul>
+                </div>
+                <button
+                  type="button"
+                  className="json-toggle"
+                  aria-expanded={showJson}
+                  onClick={() => setShowJson((value) => !value)}
+                >
+                  <Icon name={showJson ? 'chevronDown' : 'chevronRight'} size={16} />
+                  {showJson ? t.hideJson : t.showJson}
+                </button>
+                {showJson && (
+                  <pre className="json-view" tabIndex={0}>{JSON.stringify(result, null, 2)}</pre>
+                )}
+              </section>
             </div>
-            <button
-              type="button"
-              className="json-toggle"
-              aria-expanded={showJson}
-              onClick={() => setShowJson((value) => !value)}
-            >
-              <Icon name={showJson ? 'chevronDown' : 'chevronRight'} size={16} />
-              {showJson ? t.hideJson : t.showJson}
-            </button>
-            {showJson && (
-              <pre className="json-view" tabIndex={0}>{JSON.stringify(result, null, 2)}</pre>
-            )}
-          </section>
+          </details>
         </div>
       )}
     </div>

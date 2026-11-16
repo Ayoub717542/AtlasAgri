@@ -1,8 +1,11 @@
-import { coverCells, cellNoise } from './geo';
+import { gridBounds } from './geo';
 
-// Demonstration climate layers. The values are derived from the regional demo
-// record and varied cell by cell with a deterministic pattern: it looks like a
-// climate surface without pretending to be a measurement.
+// Demonstration climate layers.
+//
+// Each layer is drawn with the native grid of its source dataset and one real
+// dataset value per demonstration region. The values are simulated samples in
+// the shape of NASA POWER, GPM IMERG, SMAP and FAO GAEZ records. They are not
+// live measurements, and no finer grid is invented by subdividing a cell.
 export const LAYERS = [
   {
     id: 'rain',
@@ -11,9 +14,10 @@ export const LAYERS = [
     sub: 'layerRainSub',
     unit: 'legendUnitRain',
     metric: 'rain',
+    grid: 'gpm',
+    source: 'NASA GPM IMERG Final V07',
+    resolution: '0.1° × 0.1° (about 10 km)',
     decimals: 0,
-    clamp: [0, 900],
-    jitter: 0.11,
     breaks: [0, 150, 300, 450, 600, Infinity],
     colors: ['#E6F0F6', '#BFD9E8', '#87B7D3', '#4A90B8', '#1F6FA8'],
   },
@@ -24,9 +28,10 @@ export const LAYERS = [
     sub: 'layerTempSub',
     unit: 'legendUnitTemp',
     metric: 'temp',
+    grid: 'power',
+    source: 'NASA POWER',
+    resolution: '0.5° × 0.625° (about 50 km)',
     decimals: 0,
-    clamp: [0, 50],
-    jitter: 2.2,
     breaks: [0, 15, 20, 25, 30, 60],
     colors: ['#FDF0D8', '#F7D9A3', '#E9B36B', '#CE8438', '#A3412A'],
   },
@@ -37,9 +42,10 @@ export const LAYERS = [
     sub: 'layerSoilSub',
     unit: 'legendUnitSoil',
     metric: 'soil',
+    grid: 'smap',
+    source: 'NASA SMAP L4 SPL4SMGP.008',
+    resolution: '9 km EASE-Grid 2.0 (9,008 m)',
     decimals: 0,
-    clamp: [0, 100],
-    jitter: 0.28,
     breaks: [0, 5, 10, 15, 25, 100],
     colors: ['#F0EFE8', '#D7E4C8', '#B4CF9B', '#7FAE72', '#3E7C48'],
   },
@@ -50,9 +56,10 @@ export const LAYERS = [
     sub: 'layerCropSub',
     unit: 'legendUnitCrop',
     metric: 'crop',
+    grid: 'gaez',
+    source: 'FAO GAEZ v5',
+    resolution: '30 arc-seconds (about 1 km)',
     decimals: 0,
-    clamp: [0, 100],
-    jitter: 9,
     breaks: [0, 20, 40, 60, 80, 100],
     colors: ['#F1F1EC', '#D9E4C9', '#B7CE9C', '#86AD6C', '#2F6B3B'],
   },
@@ -73,31 +80,33 @@ export function bandIndex(value, breaks) {
   return breaks.length - 2;
 }
 
-export function cellValue(layer, base, cell) {
-  const noise = cellNoise(cell.lat, cell.lon, layer.id) * 2 - 1; // -1 … 1
-  let value;
-  if (layer.metric === 'temp' || layer.metric === 'crop') {
-    value = base + noise * layer.jitter;
-  } else {
-    value = base * (1 + noise * layer.jitter);
+const boundsKey = (bounds) => bounds.flat().map((v) => v.toFixed(5)).join('|');
+
+// One native grid cell per demonstration area. Areas in the same region share
+// the same regional value, so overlapping cells are collapsed to one rectangle.
+export function layerCells(layer, places, valuesByRegion, selectedId) {
+  const cells = new Map();
+  for (const place of places ?? []) {
+    const values = valuesByRegion?.[place.dataKey] ?? {};
+    const raw = values[layer.metric];
+    const value = typeof raw === 'number' ? raw : valueForLayer(layer, null);
+    const bounds = gridBounds(layer.grid, place.lat, place.lon);
+    const key = boundsKey(bounds);
+    const cell = {
+      key,
+      bounds,
+      value: Math.round(value * 10 ** layer.decimals) / 10 ** layer.decimals,
+      color: layer.colors[bandIndex(value, layer.breaks)],
+      selected: place.id === selectedId,
+    };
+    const existing = cells.get(key);
+    if (!existing) cells.set(key, cell);
+    else if (cell.selected) cells.set(key, { ...existing, selected: true });
   }
-  return Math.max(layer.clamp[0], Math.min(layer.clamp[1], value));
+  return [...cells.values()];
 }
 
-export function layerCells(layer, center, metrics, options = {}) {
-  const base = valueForLayer(layer, metrics);
-  return coverCells(center.lat, center.lon, options.count ?? 6, options.sideKm ?? 4)
-    .map((cell) => {
-      const value = cellValue(layer, base, cell);
-      return {
-        ...cell,
-        value: Math.round(value * 10 ** layer.decimals) / 10 ** layer.decimals,
-        color: layer.colors[bandIndex(value, layer.breaks)],
-      };
-    });
-}
-
-export function legendBands(layer, unitLabel) {
+export function legendBands(layer, unitLabel, labels) {
   return layer.colors.map((color, i) => {
     const from = layer.breaks[i];
     const to = layer.breaks[i + 1];
@@ -106,12 +115,6 @@ export function legendBands(layer, unitLabel) {
       : i === 0
         ? `< ${to}`
         : `${from}–${to}`;
-    return { color, label: `${label} ${unitLabel}`.trim(), from, to };
+    return { color, label: labels?.[i] ?? `${label} ${unitLabel}`.trim(), from, to };
   });
-}
-
-// Average of a numeric field over the current-year months, ignoring gaps.
-export function average(months, key) {
-  const values = (months ?? []).map((m) => m[key]).filter((v) => typeof v === 'number');
-  return values.length ? values.reduce((s, v) => s + v, 0) / values.length : null;
 }

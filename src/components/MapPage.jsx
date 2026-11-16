@@ -5,7 +5,7 @@ import LocateButton from './LocateButton';
 import { LAYERS, layerCells, legendBands } from '../lib/layers';
 import { PLACES, placeName, placeRegion, typeLabelKey } from '../lib/places';
 import { sortByDistance, km } from '../lib/geo';
-import { cropInfo } from '../lib/api';
+import { cropInfo, layerValuesByRegion } from '../lib/api';
 import { useLang } from '../i18n';
 
 export default function MapPage({
@@ -13,7 +13,7 @@ export default function MapPage({
   refPoint,
   refIsManual,
   suppliers,
-  metrics,
+  _metrics,
   onRefChange,
   onSelectPlace,
   onLocated,
@@ -25,12 +25,23 @@ export default function MapPage({
   const [suppliersOn, setSuppliersOn] = useState(initialSuppliersOpen);
 
   const layer = LAYERS.find((l) => l.id === layerId) ?? LAYERS[0];
+  const regionValues = useMemo(() => layerValuesByRegion(), []);
   const cells = useMemo(
-    () => layerCells(layer, place, metrics),
-    [layer, place, metrics],
+    () => layerCells(layer, PLACES, regionValues, place.id),
+    [layer, regionValues, place.id],
   );
   const selectedCell = cells.find((cell) => cell.selected) ?? cells[0];
-  const bands = legendBands(layer, t[layer.unit]);
+  const bands = legendBands(
+    layer,
+    t[layer.unit],
+    layer.id === 'crop' ? [
+      t.cropSuitabilityVeryLow,
+      t.cropSuitabilityLow,
+      t.cropSuitabilityFair,
+      t.cropSuitabilityGood,
+      t.cropSuitabilityVeryGood,
+    ] : undefined,
+  );
 
   const nearby = useMemo(
     () => sortByDistance(PLACES.filter((p) => p.id !== place.id), refPoint),
@@ -126,10 +137,13 @@ export default function MapPage({
             />
             <div className="map-overlay" role="note">
               <span className="overlay-title"><Icon name={layer.icon} size={15} /> {t[layer.label]}</span>
-              <span className="sim-tag">{t.simulated}</span>
+              <span className="overlay-meta">{t.source}: {layer.source}</span>
+              <span className="overlay-meta">{t.mapResolution}: {layer.resolution}</span>
             </div>
             <div className="map-scale-note">
-              {selectedCell ? `${selectedCell.value.toFixed(layer.decimals)} ${t[layer.unit]}` : ''}
+              {selectedCell
+                ? `${t.simulated}: ${selectedCell.value.toFixed(layer.decimals)} ${t[layer.unit]}`
+                : ''}
             </div>
           </div>
 

@@ -487,12 +487,15 @@ html[lang='ar'] .nav-group-label { letter-spacing: 0; }
 
 .map-overlay {
   position: absolute; top: .7rem; inset-inline-end: .7rem; z-index: 500;
-  pointer-events: none; display: flex; align-items: center; gap: .4rem;
+  pointer-events: none; display: grid; gap: .12rem;
+  max-width: min(280px, calc(100% - 1.4rem));
   background: rgba(255, 253, 248, .94); border: 1px solid var(--line);
-  border-radius: 999px; padding: .28rem .6rem;
-  box-shadow: var(--shadow-sm); font-size: .7rem;
+  border-radius: 12px; padding: .42rem .6rem;
+  box-shadow: var(--shadow-sm); font-size: .68rem;
 }
+.overlay-row { display: flex; align-items: center; gap: .4rem; justify-content: space-between; }
 .overlay-title { display: flex; align-items: center; gap: .28rem; font-weight: 700; }
+.overlay-meta { color: var(--muted); font-size: .63rem; line-height: 1.25; }
 .map-scale-note {
   position: absolute; bottom: .8rem; inset-inline-start: .7rem; z-index: 500;
   pointer-events: none; background: var(--ink); color: #fff;
@@ -940,6 +943,67 @@ html[lang='ar'] .stat-label { letter-spacing: 0; }
 }
 @keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
 
+/* 14-day outlook */
+.forecast-panel { display: grid; gap: .8rem; }
+.forecast-today {
+  display: flex; align-items: center; justify-content: space-between; gap: .8rem; flex-wrap: wrap;
+  padding: .8rem .9rem; border: 1px solid var(--line); border-radius: 14px;
+  background: linear-gradient(135deg, var(--canal-soft), var(--paper-2));
+}
+.forecast-today-main { display: flex; align-items: baseline; gap: .55rem; flex-wrap: wrap; }
+.forecast-today-temp { font-size: 1.9rem; line-height: 1; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.forecast-today-temp small { font-size: .95rem; color: var(--muted); font-weight: 600; }
+.forecast-today-rain { display: inline-flex; align-items: center; gap: .25rem; font-size: .82rem; color: var(--canal); }
+.forecast-today-meta { display: flex; gap: .9rem; flex-wrap: wrap; font-size: .72rem; color: var(--muted); }
+
+.forecast-weeks { display: grid; gap: .7rem; }
+.forecast-week h3 {
+  font-size: .66rem; font-weight: 700; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: .35rem;
+}
+html[lang='ar'] .forecast-week h3 { letter-spacing: 0; }
+.forecast-days {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .35rem;
+}
+.forecast-day {
+  display: grid; gap: .1rem; justify-items: center; text-align: center;
+  padding: .42rem .2rem; border: 1px solid var(--line-soft); border-radius: 10px;
+  background: var(--paper-2); font-size: .72rem;
+}
+.forecast-day.is-wet { border-color: var(--canal); background: var(--canal-soft); }
+.forecast-day-name { font-weight: 700; font-size: .68rem; }
+.forecast-day-date { font-size: .6rem; color: var(--muted); }
+.forecast-day-temp { font-weight: 700; font-variant-numeric: tabular-nums; }
+.forecast-day-rain { font-size: .62rem; color: var(--canal); }
+.forecast-day:not(.is-wet) .forecast-day-rain { color: var(--muted-2); }
+
+.forecast-status-row { margin-top: .1rem; }
+.forecast-level { font-size: 1.3rem; font-weight: 700; letter-spacing: -.02em; margin: .25rem 0 .05rem; }
+html[lang='ar'] .forecast-level { letter-spacing: 0; }
+.stat-card.tone-good { border-top-color: var(--field); }
+.stat-card.tone-watch { border-top-color: var(--wheat); }
+.stat-card.tone-neutral { border-top-color: var(--canal); }
+.stat-card.tone-watch .stat-label .icon { color: var(--wheat-dark); }
+.stat-card.tone-neutral .stat-label .icon { color: var(--canal); }
+
+.forecast-thresholds { border-top: 1px dashed var(--line); padding-top: .5rem; }
+.forecast-thresholds summary {
+  display: flex; align-items: center; gap: .3rem; cursor: pointer;
+  font-size: .74rem; font-weight: 700; color: var(--field-dark);
+}
+.forecast-thresholds-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .6rem; margin-top: .5rem;
+}
+.threshold-head {
+  font-size: .66rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .05em; color: var(--muted); margin-bottom: .2rem;
+}
+html[lang='ar'] .threshold-head { letter-spacing: 0; }
+.forecast-thresholds-grid ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .12rem; }
+.forecast-thresholds-grid li { font-size: .72rem; color: var(--muted); }
+
 .finding-list { list-style: none; margin: .6rem 0 0; padding: 0; display: grid; gap: .5rem; }
 .finding {
   display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: .55rem;
@@ -1377,6 +1441,17 @@ html[lang='ar'] .hero-kicker { letter-spacing: 0; }
 .hero-proof li { display: flex; align-items: center; gap: .28rem; font-size: .74rem; color: var(--muted); }
 .hero-proof .icon { color: var(--field); }
 
+.hero-visual { min-width: 0; padding-bottom: 1.5rem; }
+.hero-photo {
+  display: block; width: 100%; height: clamp(240px, 30vw, 360px);
+  object-fit: cover; object-position: center 58%;
+  border: 1px solid var(--line); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+.hero-visual .strip {
+  position: relative; z-index: 1;
+  width: min(88%, 430px); margin: -4.5rem auto 0 0;
+}
 .strip {
   margin: 0; padding: 1rem 1.05rem 1.05rem;
   background: var(--paper); border: 1px solid var(--line);
@@ -1631,6 +1706,8 @@ html[lang='ar'] .hero-kicker { letter-spacing: 0; }
   .hero { grid-template-columns: 1fr; }
   .hero h1 { max-width: 24ch; }
   .hero::before { display: none; }
+  .hero-photo { height: clamp(240px, 52vw, 340px); }
+  .hero-visual .strip { width: min(92%, 430px); margin-top: -3.5rem; }
   .land-steps { grid-template-columns: 1fr 1fr; }
   .stat-row { gap: .55rem; }
   .chat-panel { height: min(600px, calc(100dvh - 5.5rem)); }
@@ -1688,6 +1765,9 @@ html[lang='ar'] .hero-kicker { letter-spacing: 0; }
   .pdf-frame iframe { height: 240px; }
   .soil-grid { grid-template-columns: 1fr; }
   .stat-value strong { font-size: 1.75rem; }
+  .forecast-today { align-items: flex-start; }
+  .forecast-days { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .forecast-thresholds-grid { grid-template-columns: 1fr; }
   .score-number strong { font-size: 2.5rem; }
   .crop-grid { grid-template-columns: 1fr; }
   .crops-toolbar { padding: .5rem .55rem; }

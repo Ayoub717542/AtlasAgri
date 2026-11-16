@@ -25,7 +25,15 @@ const readLang = () => {
       if (dict[fromUrl]) return fromUrl;
     }
     const saved = localStorage.getItem(STORAGE_KEY);
-    return dict[saved] ? saved : 'en';
+    if (dict[saved]) return saved;
+    // First visit: follow the phone or computer language. Moroccan farmers
+    // usually read Arabic or French, so we do not force English on them.
+    const nav = typeof navigator === 'undefined' ? {} : navigator;
+    const preferred = [
+      ...(nav.languages ?? []),
+      nav.language ?? '',
+    ].map((code) => code.slice(0, 2).toLowerCase());
+    return preferred.find((code) => dict[code]) ?? 'en';
   } catch {
     return 'en';
   }

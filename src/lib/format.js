@@ -22,20 +22,3 @@ export const withCurrentYear = (months) => (months ?? []).map((m) => ({
   month: `${CURRENT_YEAR}-${String(m.month).slice(5, 7)}`,
 }));
 
-// Grid cell (as Leaflet bounds) that contains the point, for each dataset
-export function gridCells(lat, lon) {
-  const powerLat = Math.round(lat / 0.5) * 0.5;
-  const powerLon = Math.round(lon / 0.625) * 0.625;
-  const gLat = Math.floor(lat * 10) / 10;
-  const gLon = Math.floor(lon * 10) / 10;
-  const sHalfLat = 4.5 / 111;
-  const sHalfLon = 4.5 / (111 * Math.cos((lat * Math.PI) / 180));
-  const fLat = Math.floor(lat * 120) / 120;
-  const fLon = Math.floor(lon * 120) / 120;
-  return {
-    power: [[powerLat - 0.25, powerLon - 0.3125], [powerLat + 0.25, powerLon + 0.3125]],
-    gpm: [[gLat, gLon], [gLat + 0.1, gLon + 0.1]],
-    smap: [[lat - sHalfLat, lon - sHalfLon], [lat + sHalfLat, lon + sHalfLon]],
-    gaez: [[fLat, fLon], [fLat + 1 / 120, fLon + 1 / 120]],
-  };
-}

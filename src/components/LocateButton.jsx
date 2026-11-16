@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useId, useRef } from 'react';
 import Icon from './Icons';
 import { useGeolocate, geoMessageKey } from '../lib/useGeolocate';
 import { nearestPlace } from '../lib/places';
@@ -16,6 +16,7 @@ export default function LocateButton({
   const { t } = useLang();
   const geo = useGeolocate();
   const handled = useRef(false);
+  const messageId = useId();
 
   useEffect(() => {
     if (geo.status !== 'found' || handled.current) return;
@@ -37,14 +38,14 @@ export default function LocateButton({
         className={className}
         onClick={() => { handled.current = false; geo.locate(); }}
         disabled={geo.status === 'locating'}
-        aria-describedby={showMessage && key ? 'locate-msg' : undefined}
+        aria-describedby={showMessage && key ? messageId : undefined}
       >
         <Icon name={geo.status === 'locating' ? 'target' : 'pin'} />
         {children ?? label ?? t.locate}
       </button>
       {showMessage && key && (
         <p
-          id="locate-msg"
+          id={messageId}
           className={`locate-msg locate-${geo.status}`}
           role="status"
           aria-live="polite"

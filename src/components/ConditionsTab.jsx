@@ -5,6 +5,7 @@ import {
 import Icon from './Icons';
 import { Loading, ErrorState, Source } from './States';
 import { monthIndex, sum, fmt, CURRENT_YEAR } from '../lib/format';
+import { summarizeForecast } from '../lib/forecast';
 import { useLang } from '../i18n';
 import ScientificGlossary from './ScientificGlossary';
 
@@ -81,6 +82,167 @@ function StatCards({ climate, rain, soil }) {
         </article>
       ))}
     </div>
+  );
+}
+
+const LEVEL_KEYS = {
+  low: 'levelLow',
+  moderate: 'levelModerate',
+  high: 'levelHigh',
+  veryHigh: 'levelVeryHigh',
+};
+
+function DayChip({ day, t }) {
+  return (
+    <li className={`forecast-day${day.precip > 0 ? ' is-wet' : ''}`}>
+      <span className="forecast-day-name">{t.dayShort[day.dayOfWeek]}</span>
+      <span className="forecast-day-date">{day.date.slice(8, 10)}</span>
+      <span className="forecast-day-temp">{day.t2mMax}°</span>
+      <span className="forecast-day-rain">{day.precip > 0 ? `${day.precip} mm` : '—'}</span>
+    </li>
+  );
+}
+
+function ForecastDashboard({ state, onRetry }) {
+  const { t } = useLang();
+
+  if (!state || state.status === 'loading') {
+    return (
+      <section className="panel forecast-panel">
+        <Loading label={t.loadingForecast} height={220} />
+      </section>
+    );
+  }
+  if (state.status === 'error') {
+    return (
+      <section className="panel forecast-panel">
+        <ErrorState message={state.error} onRetry={onRetry} />
+      </section>
+    );
+  }
+
+  const summary = summarizeForecast(state.data.days);
+  const { today, thisWeek, nextWeek, peak, soilNow, weekRain, nextRain } = summary;
+
+  const cards = [
+    {
+      id: 'heat',
+      icon: 'sun',
+      title: t.forecastHeatTitle,
+      level: summary.heat,
+      tone: summary.heat === 'low' ? 'good' : summary.heat === 'moderate' ? 'watch' : 'warn',
+      sub: t.forecastHeatSub(peak),
+    },
+    {
+      id: 'water',
+      icon: 'soil',
+      title: t.forecastWaterTitle,
+      level: summary.water,
+      tone: summary.water === 'low' ? 'good' : summary.water === 'moderate' ? 'watch' : 'warn',
+      sub: t.forecastWaterSub(soilNow, weekRain),
+    },
+    {
+      id: 'rain',
+      icon: 'drop',
+      title: t.forecastRainTitle,
+      level: summary.rain,
+      tone: summary.rain === 'high' ? 'good' : summary.rain === 'moderate' ? 'neutral' : 'watch',
+      sub: t.forecastRainSub(nextRain),
+    },
+  ];
+
+  return (
+    <section className="panel forecast-panel" aria-labelledby="forecast-title">
+      <header className="panel-head">
+        <div>
+          <span className="eyebrow"><Icon name="calendar" size={16} /> {t.forecastEyebrow}</span>
+          <h2 id="forecast-title">{t.forecastTitle}</h2>
+          <p className="muted">{t.forecastSub}</p>
+        </div>
+        <span className="sim-tag">{t.simulated}</span>
+      </header>
+
+      {today && (
+        <div className="forecast-today">
+          <div className="forecast-today-main">
+            <span className="muted small">{t.todayLabel}</span>
+            <strong className="forecast-today-temp">
+              {today.t2mMax}°<small> / {today.t2mMin}°</small>
+            </strong>
+            <span className="forecast-today-rain">
+              <Icon name={today.precip > 0 ? 'drop' : 'sun'} size={15} />
+              {today.precip > 0 ? t.forecastRainToday(today.precip) : t.noRain}
+            </span>
+          </div>
+          <div className="forecast-today-meta">
+            <span>{t.forecastSoilNow(today.soilPct)}</span>
+            <span>{t.forecastWeekRain(weekRain)}</span>
+          </div>
+        </div>
+      )}
+
+      <div className="forecast-weeks">
+        <div className="forecast-week">
+          <h3>{t.thisWeekLabel}</h3>
+          <ol className="forecast-days">
+            {thisWeek.map((day) => <DayChip key={day.date} day={day} t={t} />)}
+          </ol>
+        </div>
+        <div className="forecast-week">
+          <h3>{t.nextWeekLabel}</h3>
+          <ol className="forecast-days">
+            {nextWeek.map((day) => <DayChip key={day.date} day={day} t={t} />)}
+          </ol>
+        </div>
+      </div>
+
+      <div className="stat-row forecast-status-row">
+        {cards.map((card) => (
+          <article className={`stat-card tone-${card.tone}`} key={card.id}>
+            <p className="stat-label"><Icon name={card.icon} size={17} /> {card.title}</p>
+            <p className="forecast-level">{t[LEVEL_KEYS[card.level]]}</p>
+            <p className="stat-sub">{card.sub}</p>
+          </article>
+        ))}
+      </div>
+
+      <details className="forecast-thresholds">
+        <summary><Icon name="info" size={16} /> {t.forecastThresholdsTitle}</summary>
+        <p className="muted small">{t.forecastThresholdsSub}</p>
+        <div className="forecast-thresholds-grid">
+          <div>
+            <p className="threshold-head">{t.forecastHeatTitle}</p>
+            <ul>
+              <li>{t.thresholdHeatLow}</li>
+              <li>{t.thresholdHeatModerate}</li>
+              <li>{t.thresholdHeatHigh}</li>
+              <li>{t.thresholdHeatVeryHigh}</li>
+            </ul>
+          </div>
+          <div>
+            <p className="threshold-head">{t.forecastWaterTitle}</p>
+            <ul>
+              <li>{t.thresholdWaterLow}</li>
+              <li>{t.thresholdWaterModerate}</li>
+              <li>{t.thresholdWaterHigh}</li>
+            </ul>
+          </div>
+          <div>
+            <p className="threshold-head">{t.forecastRainTitle}</p>
+            <ul>
+              <li>{t.thresholdRainLow}</li>
+              <li>{t.thresholdRainModerate}</li>
+              <li>{t.thresholdRainHigh}</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <p className="source">
+        <span className="source-line">{t.source}: {t.forecastSource}</span>
+        <span className="sim-tag">{t.simulated}</span>
+      </p>
+    </section>
   );
 }
 
@@ -277,90 +439,101 @@ function ClimateScenarioSimulator({ rain, climate }) {
   const adviceKey = rainDelta < -10 ? 'simAdviceDrier' : rainDelta > 10 ? 'simAdviceWetter' : 'simAdviceNormal';
 
   return (
-    <section className="panel sim-panel">
-      <header className="panel-head">
-        <div>
-          <span className="eyebrow"><Icon name="sparkle" size={16} /> {t.simTitle}</span>
-          <h2>{t.simTitle}</h2>
-          <p className="muted">{t.simSub}</p>
-        </div>
+    <details className="panel sim-panel">
+      <summary className="sim-summary">
+        <span className="sim-summary-icon"><Icon name="sparkle" size={20} /></span>
+        <span className="sim-summary-text">
+          <strong>{t.simTitle}</strong>
+          <small>{t.simSub}</small>
+        </span>
+        <span className="tag tag-soft sim-optional">{t.optional}</span>
+        <Icon name="chevronDown" size={18} className="sim-chevron" />
+      </summary>
+
+      <div className="sim-body">
         {(rainDelta !== 0 || heatDelta !== 0) && (
-          <button type="button" className="btn btn-ghost btn-small" onClick={() => { setRainDelta(0); setHeatDelta(0); }}>
-            <Icon name="rotate" size={14} /> {t.simReset}
-          </button>
+          <div className="sim-reset-row">
+            <button type="button" className="btn btn-ghost btn-small" onClick={() => { setRainDelta(0); setHeatDelta(0); }}>
+              <Icon name="rotate" size={14} /> {t.simReset}
+            </button>
+          </div>
         )}
-      </header>
 
-      <div className="sim-controls-grid">
-        <div className="sim-control">
-          <div className="sim-control-label">
-            <span><Icon name="drop" size={16} /> {t.simRainSlider}</span>
-            <strong className="mono">{rainDelta > 0 ? `+${rainDelta}%` : `${rainDelta}%`}</strong>
+        <div className="sim-controls-grid">
+          <div className="sim-control">
+            <div className="sim-control-label">
+              <span><Icon name="drop" size={16} /> {t.simRainSlider}</span>
+              <strong className="mono">{rainDelta > 0 ? `+${rainDelta}%` : `${rainDelta}%`}</strong>
+            </div>
+            <input
+              type="range"
+              min="-30"
+              max="30"
+              step="5"
+              value={rainDelta}
+              aria-label={t.simRainSlider}
+              onChange={(e) => setRainDelta(Number(e.target.value))}
+              className="sim-slider"
+            />
           </div>
-          <input
-            type="range"
-            min="-30"
-            max="30"
-            step="5"
-            value={rainDelta}
-            onChange={(e) => setRainDelta(Number(e.target.value))}
-            className="sim-slider"
-          />
-        </div>
 
-        <div className="sim-control">
-          <div className="sim-control-label">
-            <span><Icon name="sun" size={16} /> {t.simHeatSlider}</span>
-            <strong className="mono">+{heatDelta} {t.daysShort}</strong>
+          <div className="sim-control">
+            <div className="sim-control-label">
+              <span><Icon name="sun" size={16} /> {t.simHeatSlider}</span>
+              <strong className="mono">+{heatDelta} {t.daysShort}</strong>
+            </div>
+            <input
+              type="range"
+              min="0"
+              max="6"
+              step="1"
+              value={heatDelta}
+              aria-label={t.simHeatSlider}
+              onChange={(e) => setHeatDelta(Number(e.target.value))}
+              className="sim-slider"
+            />
           </div>
-          <input
-            type="range"
-            min="0"
-            max="6"
-            step="1"
-            value={heatDelta}
-            onChange={(e) => setHeatDelta(Number(e.target.value))}
-            className="sim-slider"
-          />
+        </div>
+
+        <div className="sim-results-grid">
+          <div className="sim-metric">
+            <span className="muted small">{t.simProjectedRain}</span>
+            <strong>{fmt(projectedRain)} <small>{t.chartUnitRain}</small></strong>
+            <span className={`tag ${rainDelta < 0 ? 'tag-warn' : rainDelta > 0 ? 'tag-good' : ''}`}>
+              {rainDelta > 0 ? `+${fmt(projectedRain - baseRain)} mm` : `${fmt(projectedRain - baseRain)} mm`}
+            </span>
+          </div>
+
+          <div className="sim-metric">
+            <span className="muted small">{t.simWaterDeficit}</span>
+            <strong>{deficitShift > 0 ? `+${fmt(deficitShift)}` : fmt(deficitShift)} <small>{t.chartUnitRain}</small></strong>
+            <span className="muted small">{deficitShift > 0 ? t.metricWater : t.source}</span>
+          </div>
+
+          <div className="sim-metric">
+            <span className="muted small">{t.statHeatTitle}</span>
+            <strong>{projectedHot} <small>{t.daysShort}</small></strong>
+            <span className={`tag ${projectedHot > 30 ? 'tag-warn' : 'tag-good'}`}>
+              {projectedHot > 30 ? t.heatHazard : t.statusGood}
+            </span>
+          </div>
+        </div>
+
+        <div className="sim-advice-box">
+          <Icon name="info" size={18} />
+          <p>{t[adviceKey]}</p>
         </div>
       </div>
-
-      <div className="sim-results-grid">
-        <div className="sim-metric">
-          <span className="muted small">{t.simProjectedRain}</span>
-          <strong>{fmt(projectedRain)} <small>{t.chartUnitRain}</small></strong>
-          <span className={`tag ${rainDelta < 0 ? 'tag-warn' : rainDelta > 0 ? 'tag-good' : ''}`}>
-            {rainDelta > 0 ? `+${fmt(projectedRain - baseRain)} mm` : `${fmt(projectedRain - baseRain)} mm`}
-          </span>
-        </div>
-
-        <div className="sim-metric">
-          <span className="muted small">{t.simWaterDeficit}</span>
-          <strong>{deficitShift > 0 ? `+${fmt(deficitShift)}` : fmt(deficitShift)} <small>{t.chartUnitRain}</small></strong>
-          <span className="muted small">{deficitShift > 0 ? t.metricWater : t.source}</span>
-        </div>
-
-        <div className="sim-metric">
-          <span className="muted small">{t.statHeatTitle}</span>
-          <strong>{projectedHot} <small>{t.daysShort}</small></strong>
-          <span className={`tag ${projectedHot > 30 ? 'tag-warn' : 'tag-good'}`}>
-            {projectedHot > 30 ? t.heatHazard : t.statusGood}
-          </span>
-        </div>
-      </div>
-
-      <div className="sim-advice-box">
-        <Icon name="info" size={18} />
-        <p>{t[adviceKey]}</p>
-      </div>
-    </section>
+    </details>
   );
 }
 
-export default function ConditionsTab({ climate, rain, soil, retryRain }) {
+export default function ConditionsTab({ climate, rain, soil, forecast, retryRain, retryForecast }) {
   const { t } = useLang();
   return (
     <div className="conditions-page">
+      <ForecastDashboard state={forecast} onRetry={retryForecast} />
+
       <StatCards climate={climate} rain={rain} soil={soil} />
       <Findings climate={climate} rain={rain} soil={soil} />
 
